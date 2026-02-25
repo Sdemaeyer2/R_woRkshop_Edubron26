@@ -1,0 +1,369 @@
+---
+title: "R and RStudio (Edubron WoRkshop 2026)"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    theme: 
+        version: 4
+        bootswatch: flatly
+    vertical_layout: scroll
+---
+
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+# Intro {.sidebar}
+
+This site bundles all the material used for the workshop [R and RStudio]{style="color: #EB6864"}. 
+
+---
+
+Instructors: 
+
+
+ - <a href="https://sdemaeyer.quarto.pub/" target="blank">Sven De Maeyer</a> 
+ - <a href="https://www.uantwerpen.be/nl/personeel/tine-vandaal/" target="blank">Tine van Daal</a>
+ 
+---
+
+All materials for the course can be downloaded via <a href="https://github.com/Sdemaeyer2/R_workshop_ICO2024" target="_blank">the github page </a>. 
+
+---
+
+Questions or feedback, do not hesitate to contact us:
+
+sven.demaeyer@uantwerpen.be
+tine.vandaal@uantwerpen.be
+
+
+---
+
+# Quick Overview
+
+## Column 1
+
+### Outline
+
+Handling datasets is a skill that is central to many research areas. Managing, analysing and displaying data are challenging tasks that require learning specific software. In this workshop, you will be introduced to R and RStudio, one of the most versatile language and software environment for data analysis. The fact that this software is open-source makes it one of the most used statistical programming languages in scientific research at the moment. The workshop will teach you ‘hands-on’ to take your first steps in R and RStudio and prepare you to work with them in the professional research context.
+
+Description of session contents
+
+The training consists of four parts:
+
+- R: You get to know the program R and its language by means of a number of examples. You practice with data management and datasets: reading data from other software (MS Excel, SPSS, …), changing/re-coding variables and other data management steps using the intuitive ‘tidyverse’ method. This will be all approached by making use of the power of creating RStudio projects.
+- Graphs: You will learn to use R as a powerful tool to create different graphs via the package ‘ggplot2’.
+- R Markdown/Quarto: You will learn to create reproducible documents (such as html reports, word docs and slides) so that you can integrate content (the explanations of the analyses and results) analyses (the way in which the results are produced (read: the underlying code) as well as the results themselves, nicely and easily, into one overall document.
+- Basic analyses: finally, you will learn how to perform some of the most common analyses in R (correlations; t-test; linear regression analyses).
+
+In the course we will schedule some time to work with your own research data (or with a dataset of us) so that you can immediately transfer what is learned to your owns projects.
+
+## Column 2
+
+### Rooms
+
+| When?  | 
+|:--------|
+| Tuesday July 2 (10 am - 17:00 pm) | 
+| Wednesday July 3 (10 am - 17:00 pm) | 
+| Thursday July 4  (10 am - 17:00 pm) | 
+
+Vergadercentrum Vredenburg, Vredenburg 19, Utrecht
+
+### Slides
+
+If you like to have all the slides as a pdf you can download them here as zip-file: 
+
+<a href="Presentations/All_Slides_As_pdf.zip" target="blank">Slides As Pdf</a>
+
+# Part 1
+
+## Column 1
+
+### Outline
+
+In the first part, we will introduce the basics of `R` language and the `RStudio` environment. 
+Following topics will be discussed:
+
+- What is R and why should you use R? 
+- Install R & RStudio 
+- RStudio interface 
+- The basics in R 
+- Installing and using packages
+- Importing data 
+- Working with R-projects
+
+### Materials
+
+#### Slides
+
+The htlm-version of the slides for this first part can be found <a href="Presentations/Part1/Slides_part1.html" target="blank">here</a>
+
+#### R script
+
+There is an R-script (`Fruit.R`) that has all the code we used in this first part. Download it <a href="Fruit.R" target="blank">here</a> (Right-click and Save as)
+
+## Column 2
+
+### References and resources
+
+# Part 2
+
+## Column 1
+
+### Outline
+
+The second part of this workshop taps into the use of `Quarto` documents! Using `Quarto` you will be able to integrate your analyses (R-code & results) in a document (pdf, html, word, ppt, ...), unleashing the power to create reproducible lab-reports and slideshows.
+
+These will be topics covered:
+
+- What is Markdown? 
+- Integrating Markdown and R code 
+- Creating a basic Quarto document 
+
+#### Slides
+
+The htlm-version of the slides for this part can be found <a href="Presentations/Part2/Slides_Part2.html" target="blank">here</a>
+
+#### Data
+
+For this part, we will use a very small dataset `Fruit.RData`. The data can be downloaded <a href="Data/MarathonData.RData" target="blank"> here </a> (right-click to save as). 
+
+## Column 2
+
+### Example application
+
+Quarto allows you to create nice documents like *lab-notes* or *walk-throughs*. For instance, I have created this document as an appendix of a paper. This is made with Quarto and is an html page that lives on the internet:
+
+<a href="https://majestic-pixie-28398c.netlify.app/" target="blank"> Walk-through example 1 </a>
+
+<a href="https://gifted-nightingale-d45b7e.netlify.app/#content" target="blank"> Walk-through example 2 </a>
+
+# Part 3
+
+## Column 1
+
+### Outline
+
+In this part of the workshop we introduce `dplyr` verbs. `dplyr` is a package that lives in the `tidyverse` that has powerfull functions to do some heavy lifting data wrangling operations. We will show how this package can be used to create new variables, select variables, filter cases, re-arrange datasets, merge datasets, ... 
+
+#### Slides
+
+The htlm-version of the slides for this first part can be found <a href="Presentations/Part3/Slides_Part3.html" target="blank">here</a>
+
+#### Data
+
+For this slideshow, we used a dataset called `Friends.RData`. The data can be downloaded <a href="Presentations/Part3/Friends.RData" target="blank"> here </a> (right-click to save as). 
+
+
+## Column 2
+
+### References and resources
+
+On-line interactive course on using `dplyr` can be found here:
+
+<https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome>
+
+# Part 4
+
+## Column 1
+
+### Outline
+
+Now everything is set to learn more about creating powerfull visualizations in `R`. To this end, we will introduce you the go-to package for visualizations in `R`: `ggplot2`.
+
+These are the topics covered in this part:
+
+- Simple plots in R 
+- Grammar of graphics
+- How `ggplot2` works (in a nutshell)
+- Visualising a categorical variable
+- Visualising a quantitative variable
+- Visualising more than one variable
+- More about visualisation? 
+
+#### Slides
+
+The htlm-version of the slides for this first part can be found <a href="Presentations/Part4/slides_part-4.html" target="blank">here</a>
+
+#### Data
+
+In this slideshow we make use of the `Pinguins` dataset that is part of the `palmerpenguins` package. So, the package `palmerpenguins` has to be installed and loaded to mimic the commands in the slides.
+
+
+## Column 2
+
+### References and resources
+
+# Part 5
+
+## Column 1
+
+### Outline
+
+Of course, `R` is not just a tool to do some data-wrangling and data-visualizations. It is a language to perform statistical analyses. In this final part we will show how some typical basic statistical analyses can be performed making use of `R`.
+
+These are the topics covered in this part:
+
+- Correlation
+- t-test
+- linear regression
+- outro
+
+#### Slides
+
+The htlm-version of the slides for this first part can be found <a href="Presentations/Part5/Slides_Part5.html" target="blank">here</a>
+
+## Column 2
+
+### References and resources
+
+
+# Exercises
+
+## Column 1
+
+### Info
+
+During the workshop we have some hands-on exercises. Here you can find a link to the datasets, the Quarto files with the instructions (right-click and save as), was well as Quarto files that present solutions for the exercises.
+
+### Datasets for the exercises
+
+- <a href="Exercises/Data/Friends.sav" target="blank">Friends.sav</a> 
+
+- <a href="Exercises/Data/RIASEC.xlsx" target="blank">RIASEC.xlsx</a>
+
+- <a href="Exercises/Data/codebook_RIASEC.txt" target="blank">codebook_RIASEC.txt</a> 
+
+- <a href="Exercises/Data/transition_data.csv" target="blank">transition_data.csv</a> 
+
+### Exercise 1: Create a project and import data
+
+The instructions for this exercise: 
+
+- <a href="Exercises/Exercise1_Project_DataImport/Exercise1.qmd" target="blank">As Quarto doc</a> 
+
+- <a href="Exercises/Exercise1_Project_DataImport/Exercise1.html" target="blank">As html page</a>
+
+
+The solutions for this exercise:
+
+- <a href="Exercises/Exercise1_Project_DataImport/Exercise1_solution.qmd" target="blank">As Quarto doc</a> 
+
+- <a href="Exercises/Exercise1_Project_DataImport/Exercise1_solution.html" target="blank">As html page</a>
+
+### Exercise 2: Data Wrangling with `dplyr`
+
+The instructions for this exercise: 
+
+- <a href="Exercises/Exercise2_dplyr/Exercises_dplyr.qmd" target="blank">As Quarto doc</a> 
+
+- <a href="Exercises/Exercise2_dplyr/Exercises_dplyr.html" target="blank">As html page</a>
+
+
+The solutions for this exercise:
+
+- <a href="Exercises/Exercise2_dplyr/Exercises_dplyr_solution.qmd" target="blank">As Quarto doc</a> 
+
+- <a href="Exercises/Exercise2_dplyr/Exercises_dplyr_solution.html" target="blank">As html page</a>
+
+### Exercise 3: Visualizations with `ggplot2`
+
+The instructions for this exercise: 
+
+- <a href="Exercises/Exercise3_ggplot2/Exercises_ggplot2.qmd" target="blank">As Quarto doc</a> 
+
+- <a href="Exercises/Exercise3_ggplot2/Exercises_ggplot2.html" target="blank">As html page</a>
+
+
+The solutions for this exercise:
+
+- <a href="Exercises/Exercise3_ggplot2/Exercises_ggplot2_solutions.qmd" target="blank">As Quarto doc</a> 
+
+- <a href="Exercises/Exercise3_ggplot2/Exercises_ggplot2_solutions.html" target="blank">As html page</a>
+
+### Exercise 4: Integrated exercise
+
+The instructions for this exercise: 
+
+- <a href="Exercises/Exercise4_all_in_one/Exercises_all_in_one.qmd" target="blank">As Quarto doc</a> 
+
+- <a href="Exercises/Exercise4_all_in_one/Exercises_all_in_one.html" target="blank">As html page</a>
+
+
+The solutions for this exercise:
+
+- <a href="Exercises/Exercise4_all_in_one/Exercises_all_in_one_solutions.qmd" target="blank">As Quarto doc</a> 
+
+- <a href="Exercises/Exercise4_all_in_one/Exercises_all_in_one_solutions.html" target="blank">As html page</a>
+
+## Column 2
+
+### References and resources
+
+The dataset **Friends.sav**, used in some of the exercises, is a simulated dataset based on the following study:
+
+Frumuselu, Anca Daniela, Sven De Maeyer, Vincent Donche, and María del Mar Gutiérrez Colon Plana. 2015. “Television Series Inside the EFL Classroom: Bridging the Gap Between Teaching and Learning Informal Language Through Subtitles.” Linguistics and Education 32 (December): 107–17. https://doi.org/10.1016/j.linged.2015.10.001.
+
+# In-line coding
+
+## Column 1 
+
+Now that you know `R` and `Quarto`, we can create lab-reports that even integrate `R-code` within the text itself. For instance, if you want to integrate the results of the calculation of a mean in your text itself it is possible. We created a document that showcases these functionalities.
+
+- <a href="Inline_Rcode.qmd" target="blank">As Quarto doc</a> 
+
+- <a href="Inline_Rcode.html" target="blank">As html page</a>
+
+# Links
+
+## Column 1
+
+### Materials on visualisations
+
+Great(est) blog-site about `ggplot2`: <https://www.cedricscherer.com/> 
+
+Tine created an on-line tutorial on `ggplot2` (in Dutch):
+<https://datavisualisatie-met-ggplot2.netlify.app/>
+
+
+### Site with all the cheatsheets
+
+In need for the cheatsheets? You can find some here: 
+<https://rstudio.github.io/cheatsheets/>
+
+### Some free online books `r fontawesome::fa("book")`
+
+Great book by one of the *founders* of the `tidyverse`, Hadley Wickham. *R for Data Science (2e)*: 
+<https://r4ds.hadley.nz/>
+
+*Fundamentals of Data Visualization* by Claus Wilke: <https://clauswilke.com/dataviz/index.html>
+
+
+## Column 2
+
+### About Quarto
+
+Quarto can be used for much more than just writing single documents. More info on all possibilities of Quarto can be found here:
+<https://quarto.org/docs/guide/>
+
+If you create a file (or a website) that you want to publish on internet there are many ways to do so. More information here:
+<https://quarto.org/docs/publishing/>
+
+You can even create a personal (academic) blog website with Quarto. Great tutorial can be found here:
+<https://www.marvinschmitt.com/blog/website-tutorial-quarto/>
+
+### Sven's website
+
+When I find the time I write short posts about (Bayesian) statistics. Some of the topics touched upon in the workshop are also documented in these posts, where I try to explain certain concepts or workflows. These posts also contain the necessary code!
+
+<a href="https://sdemaeyer.quarto.pub/posts.html">https://sdemaeyer.quarto.pub/posts.html</a>
+
+### Nice communities on `R`
+
+The **R Ladies** community: 
+<https://rladies.org/>
+
+**Tidy Tuesday** challenges on YouTube:
+<https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8>

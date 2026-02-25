@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>A reProducible woRkflow with Quarto</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs-2.30/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="extra.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: title-slide, center, middle
+
+&lt;link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous"&gt;
+
+
+
+
+&lt;style&gt;
+
+.center2 {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.rcorners1 {
+  margin: auto;
+  border-radius: 25px;
+  background: #ada500;
+  padding: 10px;
+#  width: 50%;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.right-column{
+  padding-top: 0;
+}
+
+.remark-code, .remark-inline-code { font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace;
+                                    font-size: 90%;
+                                  }
+
+&lt;/style&gt;
+
+
+&lt;div class="my-logo-left"&gt; &lt;img src="img/edubron-en-rgb.jpg" width="100%" /&gt; &lt;/div&gt;
+&lt;div class="my-logo-right"&gt; &lt;img src="img/Logo Methods Hub.png" width="100%"/&gt; &lt;/div&gt;
+
+# A reProducible woRkflow with Quarto
+.font160[
+.SW-greenD[Getting started]
+]
+.font120[
+.SW-greenD[*About reproducibility and R*]
+]
+Sven De Maeyer &amp; Tine van Daal
+
+.font80[
+.UA-red[
+2nd - 3th March, 2025
+]
+]
+
+---
+class: inverse-green, left
+
+# Overzicht
+
+.center2[
+1. RepRoducibility?! --- ([click here](#part1))
+2. Sta`R`t to be `R`eproducible --- ([click here](#part2))
+3. Welcome to the tidyverse! --- ([click here](#part3))
+4. Working with `R`-projects --- ([click here](#part4))
+5. Importing data --- ([click here](#part5))
+
+]
+
+---
+class: inverse-green, center, middle
+name: part1
+
+# 1. Rep`R`oducibility?!
+
+---
+
+## Key principles of Open Science
+
+&lt;br&gt;
+&lt;br&gt;
+--
+
+.font140[.SW-greenD[**Transparency**]]&lt;br&gt; 
+.SW-greenL[Openness about our methodology, data, and results.]
+
+--
+
+.font140[.SW-greenD[**Openness**]]&lt;br&gt;.SW-greenL[Research and research outputs are freely available to everyone.]
+
+--
+
+.font140[.SW-greenD[**Reproducibility**]]&lt;br&gt;.SW-greenL[Research methods and data are shared in such a way that others can follow, reproduce, and reuse the decisions we have made.]
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+--
+.font80[Definitions taken from Edubron's [mission statement](https://www.uantwerpen.be/en/research-groups/edubron/research/open-science/) regarding Open Science.]
+
+---
+
+## Reproducible or replicable?
+
+.pull-left[
+&lt;img  src="img/reproducible-definitiongrid.jpg" width="538" height="382" /&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.footnote[
+.font50[
+&lt;i class="fas fa-link" style="color: #FF0035;"&gt;&lt;/i&gt; * Figure from The Turing Way Community &amp; Scriberia (2024) downloaded from https://zenodo.org/records/13882307 *
+]
+]
+]
+
+--
+.pull-right[
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.right[
+.font140[
+*What does it take to do &lt;br&gt;reproducible research?*
+]
+]
+]
+
+---
+
+## Towards a reproducible workflow 
+
+&lt;center&gt;
+&lt;img src="img/Open Huis Workflow.png" width="600" height="453" /&gt;
+&lt;/center&gt;
+
+
+---
+
+## A reproducible quantitative workflow
+
+&lt;img src="https://r4ds.hadley.nz/diagrams/data-science/base.png"/&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+.footnote[
+.font50[
+&lt;i class="fas fa-link" style="color: #FF0035;"&gt;&lt;/i&gt; * Wickham, H., Cetinkayak-Rundel, M., &amp; Grolemund, G. (2023) R for Data Science (second edition). O'Reilly. Also available online: https://www.edureka.co/blog/r-programming-language *
+]
+]
+
+
+---
+
+## Why we talk about rep&lt;img src="img/Rlogo.svg" width="5%"/&gt;oducibility?
+    
+.pull-left[
+`R` is a powerful tool for:
+- Data cleaning and preparation
+- Statistical analysis
+- Data visualisation
+- ...
+
+&lt;img src="Slides_part1_files/figure-html/unnamed-chunk-2-1.png" alt="" width="320px" /&gt;
+
+]
+
+
+--
+
+.pull-right[
+&lt;br&gt;
+`R` facilitates .SW-greenD[reproducibility] and open science practices by allowing you to write a **script**.
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+.font80[
+
+``` r
+library(tidyverse)              #load tidyverse package
+library(datasauRus)             #load datasauRus package
+datasaurus_dozen %&gt;%
+  filter(dataset=="star") %&gt;%   #filter rows
+  ggplot(
+    aes(x = x, y = y)           #define x- and y-axis
+    )+
+  geom_point(size = 1.2) +      #change size of points
+  annotate(                     #add text
+    geom = "text", 
+    x = 60, y = 52, size = 8, fontface = "bold",
+    color = "#AAAA17",
+    label = "R is a staR in open science!"
+    ) +
+  theme_void() +                #set theme of plot
+  theme(legend.position = "none")
+```
+]
+]
+
+---
+class: inverse-green, center, middle
+name: part2
+
+# 2. Sta`R`t to be `R`eproducible
+
+---
+
+## RStudio to make you`R` life easie`R`
+&lt;left&gt;
+&lt;img src="img/rstudio-panes-labeled.jpeg" width="55%"/&gt;
+&lt;/left&gt;
+&lt;br&gt;
+&lt;br&gt;
+.footnote[
+.font50[
+&lt;i class="fas fa-link" style="color: #FF0035;"&gt;&lt;/i&gt; * Figure from RStudio User Guide (Release 2026.01.01) https://docs.posit.co/ide/user/ide/get-started/ *
+]
+]
+
+---
+class: inverse-blue, center, middle
+
+## Let's make a script in `RStudio`
+.rcorners1[.Large[
+&lt;i class="fas fa-code" style="color: #FF0035;"&gt;&lt;/i&gt; * Time to get started with the real work and code together*
+]
+.small[You can find the code on the next slides.
+
+There is also a script `Fruit.R` that contains the same code (see course material for Part 1 online)]
+]
+
+---
+
+### &lt;i class="fas fa-code" style="color: #FF0035;"&gt;&lt;/i&gt; .SW-greenD[Code-Blocks: character vector]
+
+We create a vector and call it _.UA-blue[Fruit]_  
+.small[
+
+``` r
+Fruit &lt;- c("Apples", "Bananas", "Lemons", "Berries", "Peaches", NA)
+```
+]
+.font80[
+- .UA-red[`c()`] represents .SW-greenD[*concatenate*], all elements between the brackets ( separated by `,`) are 'merged' into one element
+
+- .UA-red[`&lt;-`] means that we want to store the result in an object (a vector) that we call `Fruit`
+
+- the .UA-red[`" "`] that surround the elements indicate that these are of the type *character*] 
+
+Let's look at the object _.UA-blue[Fruit]_ by printing it to the console  
+.small[
+
+``` r
+Fruit
+```
+
+```
+## [1] "Apples"  "Bananas" "Lemons"  "Berries" "Peaches" NA
+```
+]
+We can also check the structure of the object _.UA-blue[Fruit]_ by using the **.UA-red[`str()`]** function
+.small[
+
+``` r
+str(Fruit)
+```
+
+```
+##  chr [1:6] "Apples" "Bananas" "Lemons" "Berries" "Peaches" NA
+```
+]
+
+
+---
+### &lt;i class="fas fa-code" style="color: #FF0035;"&gt;&lt;/i&gt; .SW-greenD[Code-Blocks: numeric vector]
+
+We create a vector called _.UA-blue[Weight]_  
+.small[
+
+``` r
+Weight &lt;- c(230, 191, 93, 100, 48, 244)
+```
+]  
+&lt;br&gt;  
+In this case, the elements are 'recorded' as numeric elements  
+.small[
+
+``` r
+str(Weight)
+```
+
+```
+##  num [1:6] 230 191 93 100 48 244
+```
+]
+&lt;br&gt;  
+Now, we can start calculating... For example, we can apply the function .UA-red[`mean( )`]  
+.small[
+
+``` r
+mean(Weight)
+```
+
+```
+## [1] 151
+```
+]
+
+---
+
+### &lt;i class="fas fa-code" style="color: #FF0035;"&gt;&lt;/i&gt; .SW-greenD[Code-Blocks: logical vector]
+
+We create a vector called _.UA-blue[Yellow]_  
+
+``` r
+Yellow &lt;- c(F, T, T, F, F, F)
+```
+&lt;br&gt;  
+The element of the vector _.UA-blue[Yellow]_ are 'logical operators' (TRUE or FALSE)  
+
+``` r
+str(Yellow)
+```
+
+```
+##  logi [1:6] FALSE TRUE TRUE FALSE FALSE FALSE
+```
+&lt;br&gt;  
+Let us have a closer look at the vector _.UA-blue[Yellow]_
+
+``` r
+Yellow
+```
+
+```
+## [1] FALSE  TRUE  TRUE FALSE FALSE FALSE
+```
+
+---
+### &lt;i class="fas fa-code" style="color: #FF0035;"&gt;&lt;/i&gt; .SW-greenD[Code-Blocks: a data frame]
+.pull-left[
+We create a data.frame called _.UA-blue[Fruit_data]_ using the function **.UA-red[`data.frame( )`]**  
+.small[
+
+``` r
+Fruit_data &lt;- data.frame(Fruit, Weight, Yellow)
+```
+]
+&lt;br&gt;  
+Let's have a look at *.UA-blue[Fruit_data]*
+.small[
+
+``` r
+Fruit_data
+```
+
+```
+##     Fruit Weight Yellow
+## 1  Apples    230  FALSE
+## 2 Bananas    191   TRUE
+## 3  Lemons     93   TRUE
+## 4 Berries    100  FALSE
+## 5 Peaches     48  FALSE
+## 6    &lt;NA&gt;    244  FALSE
+```
+]
+]
+.pull-right[
+We can check the structure of the object  _.UA-blue[Fruit_data]_  
+.small[
+
+``` r
+str(Fruit_data)
+```
+
+```
+## 'data.frame':	6 obs. of  3 variables:
+##  $ Fruit : chr  "Apples" "Bananas" "Lemons" "Berries" ...
+##  $ Weight: num  230 191 93 100 48 244
+##  $ Yellow: logi  FALSE TRUE TRUE FALSE FALSE FALSE
+```
+]
+]
+
+---
+### &lt;i class="fas fa-code" style="color: #FF0035;"&gt;&lt;/i&gt; .SW-greenD[Code-Blocks: subsetting a data frame]
+
+.pull-left[
+The **.UA-red[`$`] operator** is used to refer to a vector 
+.small[
+
+``` r
+Fruit_data$Weight
+```
+
+```
+## [1] 230 191  93 100  48 244
+```
+]
+By **indexing** specific columns- (and/or) row-numbers can be selected .UA-red[`[row, column]`]
+]
+
+.pull-right[
+**Examples of indexing**: 
+- Retrieve element that is located at row 1 and column 1    
+.small[
+
+``` r
+Fruit_data[1,1]
+```
+
+```
+## [1] "Apples"
+```
+]
+
+- Retrieve all elements in column 3  
+.small[
+
+``` r
+Fruit_data[,3]
+```
+
+```
+## [1] FALSE  TRUE  TRUE FALSE FALSE FALSE
+```
+]
+
+- Retrieve all elements in row 3  
+.small[
+
+``` r
+Fruit_data[3,]
+```
+
+```
+##    Fruit Weight Yellow
+## 3 Lemons     93   TRUE
+```
+]
+]
+
+--- 
+
+## This is a reproducible workshop!
+
+Various types of files used during the workshop:
+
+- R-scripts (as example) (.R)
+
+- Rmd-files (for slides) (.Rmd)
+
+- Qmd-files (for exercises) (.Qmd)
+
+- data sets (.sav, .csv, ...)
+
+- html-version of slides and exercises (.html)
+
+
+All these files can be found at the dedicated web-page: https://icoworkshop-rstudio-2024.netlify.app/#quick-overview
+
+---
+class: inverse-green, center, middle
+name: part3
+
+# 3. Welcome to the tidyverse!
+
+---
+
+## R-Packages?!
+
+.pull-left[
+- The unive&lt;img src="img/Rlogo.svg" width="8%"/&gt;sum is in constant development
+
+- Package = extension of the `Base`-functions
+
+- Range from .SW-greenD[specialised] to .SW-greenD[generic/universal] packages
+
+- Overview on .font100[https://cran.r-project.org/web/packages/available_packages_by_name.html]
+
+- Which package(s) to use?
+]
+
+.pull-right[
+&lt;img src="img/R_packages.jpg" alt="" width="100%" height="100%" style="display: block; margin: auto 0 auto auto;" /&gt;
+]
+
+---
+
+## The `tidyverse` package is a .UA-red[**MUST-HAVE**] for everyone!
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="img/Tidyverse_screen.jpg" alt="" width="70%" height="70%" /&gt;
+
+.footnote[
+.font50[
+&lt;i class="fas fa-link" style="color: #FF0035;"&gt;&lt;/i&gt; * More information at https://tidyverse.org *
+]
+]
+
+---
+
+## A reproducible workflow with tidyverse
+
+&lt;center&gt;
+&lt;img src="img/tidyverse-package-workflow.png" width="75%"/&gt;
+&lt;/center&gt;
+&lt;br&gt;
+&lt;br&gt;
+.footnote[
+.font50[
+&lt;i class="fas fa-link" style="color: #FF0035;"&gt;&lt;/i&gt; * Figure from Teach data Science  https://teachdatascience.com/tidyverse/ *
+]
+]
+
+---
+
+## .UA-red[ `install.packages( )`] and .SW-greenD[`library( )`]
+
+.pull-left[
+Packages can be .UA-red[**downloaded and installed**] 
+
+- by 'clicking' in `RStudio`
+
+- **by using a function in the console or script**
+
+
+*What Sven usually does: `install.packages()`*   
+*What Tine usually does: click and go!*
+
+For example,
+
+``` r
+install.packages("tidyverse", dependencies = T)
+```
+]
+
+.pull-right[
+Packages should be .SW-greenD[**activated**] at the start of the session
+
+- by 'clicking' in `RStudio`
+
+- **by using a function in de console or script**
+
+&lt;br&gt;  
+*What we both usually do: `library()`*
+
+For example,
+
+``` r
+library("tidyverse")
+```
+]
+
+---
+
+class: inverse-green, center, middle
+name: part4
+
+# 4. Working with `R`-projects
+
+---
+
+## Handling all these files
+During analyses, we will regularly handle different files:
+
+- data sets
+- scripts
+- output (html-files; figures; ...)
+
+Consequently, we should refer to these files in our code. 
+
+---
+
+## Taking the right path ...
+
+There are two ways to refer to these files.
+
+.pull-left[
+.SW-greenD[**USING ABSOLUTE PATHS**]
+
+We can do this using an *ABSOLUTE path*.
+Below is an example  of an absolute path:
+
+``` r
+'c:/Users/Sven/Mijn Documenten/UAntwerpen/Analyses/ProjectX/R_Script/Analysescript1.R' 
+```
+
+.font80[Absolute paths make it difficult to share your work; you get into trouble when you change laptops; ...
+]
+]
+
+.pull-right[
+.SW-greenD[**USING RELATIVE PATHS**]  
+
+To avoid these problems, `RStudio` introduced the concept of an *.UA-red[`R`-Project].*  
+
+Within a project you can use *RELATIVE paths* (that starts from the folder in which you save the project).
+&lt;br&gt;  
+Below is an example of a relative path:
+
+``` r
+'~R_Script/Analysescript1.R' 
+```
+]
+
+---
+
+## Sharing projects? 
+
+If I put a project of Sven on my laptop, the .SW-greenD[RELATIVE paths] might get me into trouble.  
+For example, the Rmd-file 'Slides_part1.Rmd' is located at
+
+`'c:/Users/Sven/Dropbox/ICO_R_2022/Presentations/Part 1/Slides_part1.Rmd' `
+&lt;br&gt;   
+Of course, I do not have the same structure on my laptop... &lt;br&gt;   
+To facilitate sharing of projects, the package `here` has been created. 
+
+---
+
+## Creating relative paths with function .UA-red[`here()`]  
+
+The function `here()` creates a paths relative to the top-level directory of my laptop.
+
+``` r
+library(here)
+here()
+```
+
+```
+## [1] "/Users/tinevandaal/Library/CloudStorage/OneDrive-UniversiteitAntwerpen/woRkshops en presentaties/2026/A repRoducible woRkflow with Quarto"
+```
+
+``` r
+here("Presentations", "Part 1", "Slides_part1_Rmd")
+```
+
+```
+## [1] "/Users/tinevandaal/Library/CloudStorage/OneDrive-UniversiteitAntwerpen/woRkshops en presentaties/2026/A repRoducible woRkflow with Quarto/Presentations/Part 1/Slides_part1_Rmd"
+```
+
+---
+class: inverse-blue, center, middle
+## Exercises
+
+.rcorners1[.Large[
+&lt;i class="fas fa-code" style="color: #FF0035;"&gt;&lt;/i&gt; .white[*Creating a project in `RStudio`*] 
+
+&lt;br&gt;
+
+.small[You can find the folder `Exercises` at the Github: &lt;https://github.com/Sdemaeyer2/R_workshop_ICO2024/&gt;. Download this folder and put it somewhere on your laptop.]
+]
+]
+
+---
+
+## Creating a project in `RStudio` 
+
+Click on .UA-red[`File/New Project...`]
+
+Next, you can choose:
+
+&lt;img src="img/New_Project.jpg" alt="" width="50%" height="50%" /&gt;
+
+---
+
+class: inverse-green, center, middle
+name: part8
+
+# 5. Importing data  
+
+---
+
+## Data comes in different formats
+
+Data exist in various formats, but the most common ones are:
+
+- MS Excel
+- SPSS / Stata / SAS 
+- text (csv, tab-delimited)
+
+Various methods and packages have been developed to import these types of data
+
+We will show some possibilities
+
+---
+
+## Importing MS Excel data with the .UA-red[`readxl`] pakket
+
+Make sure that the package is installed on your laptop
+Then, you can use the code below to import the data
+.small[
+
+``` r
+library(readxl)
+Data &lt;- read_excel(
+  path = "&lt;path to map and file&gt;"
+)
+```
+]
+*Imagine*: you have an excel-file .SW-greenD[**Datacollection1**] with multiple sheets  
+*Goal*: you only want to import the sheet with name .SW-greenD[**Group2**] and save it as a data frame .SW-greenD[**Data_Group2**]
+.small[
+
+``` r
+Data_Groep2 &lt;- read_excel(
+  path = "&lt;path to map and file&gt;/Datacollection1.xlsx",
+  sheet = "Group1"
+)
+```
+]
+You shouldn't use the argument `sheet` if:  
+- the excel-file only includes 1 sheet
+- there are multiple sheets but you only want to import the first one
+
+---
+
+## Importing SPSS data with package .UA-red[`foreign`]
+
+Make sure that the package is installed on your laptop
+Then, you can use the code below to import the data
+
+``` r
+library(foreign)
+Data &lt;- read.spss(
+  file = "&lt;path to map and file&gt;",
+  use.value.labels = FALSE,
+  to.data.frame = TRUE
+)
+```
+
+&gt; .SW-greenD[`use.value.labels`] argument: &lt;br&gt; &lt;br&gt; 
+In SPSS, data is labelled. Do you want these labels to appear in the R data-frame? &lt;br&gt; &lt;br&gt;
+*For example. Variable with 3 categories: 1 = "Low", 2 = "Average", 3 = "High". These labels are included in the SPSS-file. You can choose to import these labels in the R data frame (`use.value.labels = TRUE`) or only the numbers 1, 2 and 3 that represent these categories (`use.value.labels = FALSE`)* 
+
+---
+
+## Importing csv-files with function .UA-red[`read.table( )`]
+
+.pull-left[
+csv-files usually look like this .font80[(separated by .UA-red[.large[`,`]] or .UA-red[.large[`;`]]) ]
+.small[
+
+``` r
+Column1, Column2, Column3
+1, 3, 5
+2, 4, 6
+8, 10, 99
+```
+]
+
+To import these data, the function .UA-red[`read_table( )`] is most convenient...
+.small[
+
+``` r
+Data &lt;- read.table(
+  file = "&lt;path to map and file&gt;",
+  header = TRUE,
+  sep = ",", 
+  dec = "."
+)
+```
+]
+]
+.pull-right[
+- **.SW-greenD[`header`]** argument: &lt;br&gt; &lt;br&gt; 
+The first row includes column (variable) names or not?
+
+- **.SW-greenD[`sep`]** argument: &lt;br&gt; &lt;br&gt; 
+Which character is used to separate the values in the different columns?
+
+- **.SW-greenD[`dec`]** argument: &lt;br&gt; &lt;br&gt; 
+Which character is used to indicate a decimal point? .font80[(Can be a point or a comma)]
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
