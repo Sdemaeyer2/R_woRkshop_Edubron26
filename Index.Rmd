@@ -16,7 +16,7 @@ library(flexdashboard)
 
 # Intro {.sidebar}
 
-This site bundles all the material used for the workshop [R and RStudio]{style="color: #EB6864"}. 
+This site bundles all the materials used for the workshop [R and RStudio]{style="color: #EB6864"}. 
 
 ---
 
@@ -65,11 +65,9 @@ In the course we will schedule some time to work with your own research data (or
 
 | When?  | 
 |:--------|
-| Tuesday July 2 (10 am - 17:00 pm) | 
-| Wednesday July 3 (10 am - 17:00 pm) | 
-| Thursday July 4  (10 am - 17:00 pm) | 
+| Monday February 2 (9 am - 16:00 pm) | 
+| Tuesday February 3 (9 am - 16:00 pm) | 
 
-Vergadercentrum Vredenburg, Vredenburg 19, Utrecht
 
 ### Slides
 
