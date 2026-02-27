@@ -1,5 +1,5 @@
 ---
-title: 'ICO Workshop R & RStudio - Part 2'
+title: 'A reProducible woRkflow with Quarto'
 output:
   xaringan::moon_reader:
     css: [default, default-fonts, extra.css]
@@ -58,7 +58,7 @@ extrafont::loadfonts()
 <div class="my-logo-left"> <img src="img/edubron-en-rgb.jpg" width="100%" /> </div>
 <div class="my-logo-right"> <img src="img/Logo Methods Hub.png" width="100%"/> </div>
 
-# ICO Workshop R & RStudio
+# A reProducible woRkflow with Quarto
 .font160[
 .SW-greenD[Part 2]
 ]
@@ -69,7 +69,7 @@ Sven De Maeyer & Tine van Daal
 
 .font80[
 .UA-red[
-2nd - 4th July, 2024
+2nd - 3th March, 2026
 ]
 ]
 
@@ -79,7 +79,7 @@ class: inverse-green, left
 # Overview
 
 .center2[
-- What is markdown --- ([Go to that section](#part1))
+- What is Markdown? --- ([Go to that section](#part1))
 - Integrating Markdown and R code --- ([Go to that section](#part2))
 - Creating a basic Quarto document --- ([Go to that section](#part3))
 
@@ -89,7 +89,7 @@ class: inverse-green, left
 class: inverse-green, center, middle
 name: part1
 
-# 1. What is markdown?
+# 1. What is Markdown?
 
 ---
 
@@ -162,7 +162,7 @@ Two roads with the same destination, but...
 ## How Quarto works...
 
 .center2[
-```{r, out.height = "80%", out.width="80%", eval = T, echo = F}
+```{r, out.height = "90%", out.width="90%", eval = T, echo = F}
 knitr::include_graphics("Quarto_Flow.jpg")
 ```
 ]
@@ -351,6 +351,12 @@ knitr::include_graphics("Quarto_run_code_chunk2.jpg")
 ## Code chunks 
 
 .UA-red[**ATTENTION!**]: The order of code chunks do matter. If you want to run all the code in the code chunks before a certain code chunk, you can click on the button aside of the green arrow (downward green arrow)
+
+.center2[
+```{r, out.height = "80%", out.width="80%", eval = T, echo = F}
+knitr::include_graphics("Quarto_run_previous_code_blocks.png")
+```
+]
 
 ---
 ## Adding a new code chunk 

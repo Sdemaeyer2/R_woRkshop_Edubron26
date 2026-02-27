@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>ICO Workshop R &amp; RStudio</title>
+    <title>A reProducible woRkflow with Quarto</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.30/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="extra.css" type="text/css" />
@@ -52,11 +52,10 @@ class: title-slide, center, middle
 &lt;/style&gt;
 
 
-&lt;div class="my-logo-left"&gt; &lt;img src="img/UA-eng-hor-1-RGB.jpg" width="110%"/&gt; &lt;/div&gt;
-&lt;div class="my-logo-right"&gt; &lt;img src="img/ICO-logo.png" width="90%"/&gt; &lt;/div&gt;
+&lt;div class="my-logo-left"&gt; &lt;img src="img/edubron-en-rgb.jpg" width="100%" /&gt; &lt;/div&gt;
+&lt;div class="my-logo-right"&gt; &lt;img src="img/Logo Methods Hub.png" width="100%"/&gt; &lt;/div&gt;
 
-
-# ICO Workshop R &amp; RStudio
+# A reProducible woRkflow with Quarto
 .font160[
 .SW-greenD[Part 3]
 ]
@@ -67,7 +66,7 @@ Sven De Maeyer &amp; Tine van Daal
 
 .font80[
 .UA-red[
-2nd - 4th July, 2024
+2nd - 3th March, 2026
 ]
 ]
 
@@ -79,7 +78,6 @@ class: inverse-green, left
 .center2[
 - Tidyverse --- ([Click here](#part1))
 - The `dplyr` package --- ([Cliick here](#part2))
-- Implementation --- ([Click here](#part3))
 
 ]
 
@@ -94,24 +92,27 @@ name: part1
 ## Welcom in the .UA-red[`tidyverse`]
 
 .center2[
-&lt;img src="tidyverse_data_science.png" width="100%" height="100%" /&gt;
+&lt;img src="tidyverse_data_science.png" alt="" width="100%" height="100%" /&gt;
 ]
 
 ---
 
 ## Why .UA-red[`tidyverse`]?
+&lt;br&gt;
+More accessible for beginners
+&lt;br&gt;
 
-- more accessible for beginners
+Consistent approach for all potential tasks
+&lt;br&gt;
 
-- consistent approach for all potential tasks
+Powerful potential applications with minimum 'effort'
+&lt;br&gt;
 
-- powerful potential applications mith minimum 'effort'
-
-- can give confidence to explore `R`
+Can give you the confidence to explore `R`
 ---
 ## Tibble
 
-Normally we work with a  .SW-greenD[dataframe] in `R` but we can have very complex data-structures as well (e.g., lists, matrices, ...)
+Normally we work with a .SW-greenD[dataframe] in `R` but we can have very complex data-structures as well (e.g., lists, matrices, ...)
 
 In the `tidyverse` ecosystem we work with a simple form of data-structure: a `tibble`
 
@@ -121,7 +122,7 @@ A tibble is a dataframe that fits the **tidy data** principle
 
 
 
-```r
+``` r
 Friends
 ```
 
@@ -147,21 +148,21 @@ Friends
 ---
 ## What is **tidy data**?
 
-&lt;img src="tidydata_1.jpeg" width="80%" height="80%" /&gt;
+&lt;img src="tidydata_1.jpeg" alt="" width="80%" height="80%" /&gt;
 
 &lt;p align="right"&gt;.footnotesize[.SW-greenD[*Artwork by @allison_horst*]] &lt;/p&gt;
 
 ---
 ## What is **tidy data**?
 
-&lt;img src="tidydata_2.jpeg" width="80%" height="80%" /&gt;
+&lt;img src="tidydata_2.jpeg" alt="" width="80%" height="80%" /&gt;
 
 &lt;p align="right"&gt;.footnotesize[.SW-greenD[*Artwork by @allison_horst*]] &lt;/p&gt;
 
 ---
 ## What is **tidy data**?
 
-&lt;img src="tidydata_3.jpeg" width="80%" height="80%" /&gt;
+&lt;img src="tidydata_3.jpeg" alt="" width="80%" height="80%" /&gt;
 
 &lt;p align="right"&gt;.footnotesize[.SW-greenD[*Artwork by @allison_horst*]] &lt;/p&gt;
 
@@ -193,14 +194,14 @@ name: part2
 
 ---
 
-&lt;img src="dplyr_cheatsheet.jpg" width="60%" height="60%" /&gt;
+&lt;img src="dplyr_cheatsheet.jpg" alt="" width="60%" height="60%" /&gt;
 
 https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf
 ---
 
 ## The .UA-red[`%&gt;%`] operator (a 'pipe')
 .left-column[
-&lt;img src="magrittr_stxndz.png" width="100%" height="100%" /&gt;
+&lt;img src="magrittr_stxndz.png" alt="" width="100%" height="100%" /&gt;
 &lt;br&gt;
 &lt;p align="center"&gt;To create &lt;br&gt;.SW-greenD[**a chain of functions**] &lt;/p&gt;
 
@@ -211,27 +212,26 @@ https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation
 Instead of
 
 
-```r
+``` r
 mean(c(1,2,3,4))
 ```
 
 or
 
 
-```r
+``` r
 Numbers &lt;- c(1,2,3,4)
 mean(Numbers)
 ```
-
 you can do
 
 
-```r
+``` r
 c(1,2,3,4) %&gt;% 
   mean( )
 ```
 
-With the `%&gt;%` you can write a sentence like:
+With the **`%&gt;%`** you can write a sentence like:
 
 &gt; *I .UA-red[`%&gt;%`] woke up .UA-red[`%&gt;%`], took a shower .UA-red[`%&gt;%`], got breakfast .UA-red[`%&gt;%`], took the train .UA-red[`%&gt;%`] and arrived at the ICO course .UA-red[`%&gt;%`] …*
 ]
@@ -240,7 +240,7 @@ With the `%&gt;%` you can write a sentence like:
 
 ## .UA-red[`filter()`]
 
-&lt;img src="dplyr_filter.jpeg" width="70%" height="70%" /&gt;
+&lt;img src="dplyr_filter.jpeg" alt="" width="70%" height="70%" /&gt;
 
 &lt;p align="right"&gt;.footnotesize[.SW-greenD[*Artwork by @allison_horst*]] &lt;/p&gt;
 
@@ -252,7 +252,7 @@ With the FRIENDS data:
 &gt; .SW-greenD[*We only select observations from the first measurement occassion in condition 1*]
 
 
-```r
+``` r
 Friends_Occ1 &lt;- Friends %&gt;%
   filter(occassion == 1 &amp; condition == 1)
 ```
@@ -263,7 +263,7 @@ Friends_Occ1 &lt;- Friends %&gt;%
 &gt; .SW-greenD[*Let's clean some data, and remove observations with fluency values above 300 and that do not equal fluence value 0*]
 
 
-```r
+``` r
 Friends_clean &lt;- Friends %&gt;%
   filter(fluency &lt; 300 &amp; fluency != 0)
 ```
@@ -273,7 +273,7 @@ Friends_clean &lt;- Friends %&gt;%
 ---
 ## .UA-red[`mutate()`]
 
-&lt;img src="dplyr_mutate.png" width="50%" height="50%" /&gt;
+&lt;img src="dplyr_mutate.png" alt="" width="50%" height="50%" /&gt;
 
 &lt;p align="right"&gt;.footnotesize[.SW-greenD[*Artwork by @allison_horst*]] &lt;/p&gt;
 
@@ -285,7 +285,7 @@ With the Friends data:
 &gt; .SW-greenD[*We calculate a new variable containing the fluency scores minus the average of fluency*]
 
 
-```r
+``` r
 Friends &lt;- Friends %&gt;%
   mutate(
     fluency_centered = fluency - mean(fluency, na.rm = T)
@@ -301,7 +301,7 @@ With the Friends data:
 &gt; .SW-greenD[*We create a factor for condition*]
 
 
-```r
+``` r
 Friends &lt;- Friends %&gt;%
   mutate(
     condition_factor = as.factor(condition)
@@ -317,7 +317,7 @@ str(Friends$condition_factor)
 ---
 ## Let's apply .UA-red[`select()`]
 
-To select variables.
+.font-size140[To **select** variables.]
 
 Some examples with the Friends data:
 
@@ -325,7 +325,7 @@ Some examples with the Friends data:
 
 .footnotesize[
 
-```r
+``` r
 Friends %&gt;%
   select(
     condition, occassion
@@ -347,7 +347,7 @@ Friends %&gt;%
 ---
 ## Rename variables with .UA-red[`rename()`]
 
-Notice how the variable `occassion` is misspelled! Pretty enoying when coding... But we can easily rename variables.
+Notice how the variable `occassion` is misspelled! Pretty annoying when coding... But we can easily **rename** variables.
 
 Function `rename(new_name = old_name)`
 
@@ -355,7 +355,7 @@ Function `rename(new_name = old_name)`
 
 .footnotesize[
 
-```r
+``` r
 Friends &lt;- Friends %&gt;%
   rename(
     occasion = occassion
@@ -366,15 +366,15 @@ Friends &lt;- Friends %&gt;%
 ---
 ## Super combo 1: .UA-red[`group_by() + summarize( )`] 
 
-- transform a tibble to a *grouped tibble* making use of `group_by()` 
+Transform a tibble to a *grouped tibble* making use of `group_by()` 
 
-- calculate summary stats per group making use of `summarize()`
+Calculate summary stats per group making use of `summarize()`
 
 &gt; .SW-greenD[*Calculate the average fluency and standard deviation per condition* ]
 
 .footnotesize[
 
-```r
+``` r
 Friends %&gt;%
   group_by(
     condition
@@ -402,7 +402,7 @@ Friends %&gt;%
 
 .footnotesize[
 
-```r
+``` r
 Friends %&gt;%
   group_by(
     occasion, condition
@@ -432,14 +432,14 @@ Friends %&gt;%
 ---
 ## Super combo 2: .UA-red[`mutate() + case_when( )`] 
 
-&lt;img src="dplyr_case_when_sm.png" width="70%" height="70%" /&gt;
+&lt;img src="dplyr_case_when_sm.png" alt="" width="70%" height="70%" /&gt;
 
 &lt;p align="right"&gt;.footnotesize[.SW-greenD[*Artwork by @allison_horst*]] &lt;/p&gt;
 
 ---
 ## Super combo 2: .UA-red[`mutate() + case_when( )`] 
 
-To recode variables into new variables!
+To **recode** variables into new variables!
 
 .pull-left[
 &gt; .SW-greenD[*We create a new categorical variant of fluency with 3 groups, then we select this new variable and have a look to the top 5 observations...* ]]
@@ -447,7 +447,7 @@ To recode variables into new variables!
 .pull-right[
 .footnotesize[
 
-```r
+``` r
 Friends %&gt;%
   mutate(
     fluency_grouped = case_when(
@@ -479,30 +479,41 @@ Friends %&gt;%
 ---
 
 ## How to define conditions
+&lt;br&gt;
+.UA-red[`x == y`] `\(\rightarrow\)` 'x is **equal** to y'
 
-- .UA-red[`x == y`] `\(\rightarrow\)` 'x is equal to y'
+.UA-red[`x != y` ] `\(\rightarrow\)` 'x is **NOT equal** to y'
 
-- .UA-red[`x != y` ] `\(\rightarrow\)` 'x is NOT equal to y'
+&lt;br&gt;
 
-- .UA-red[`x &lt; y`] `\(\rightarrow\)` 'x is smaller than y'
+.UA-red[`x &lt; y`] `\(\rightarrow\)` 'x is **smaller** than y'
 
-- .UA-red[`x &lt;= y`] `\(\rightarrow\)` 'x is smaller or equal to y'
+.UA-red[`x &lt;= y`] `\(\rightarrow\)` 'x is **smaller or equal** to y'
 
-- .UA-red[`x &gt; y`] `\(\rightarrow\)` 'x is higher than y'
+&lt;br&gt;
 
-- .UA-red[`x &gt;= y`] `\(\rightarrow\)` 'x is higher or equal to y'
+.UA-red[`x &gt; y`] `\(\rightarrow\)` 'x is **higher** than y'
+
+.UA-red[`x &gt;= y`] `\(\rightarrow\)` 'x is **higher or equal** to y'
 
 ---
 
 ## Bolean operators
-
+&lt;br&gt;
 We can combine conditions!
+&lt;br&gt;
+&lt;br&gt;
 
-- .UA-red[`&amp;`] `\(\rightarrow\)` 'and' `\(\rightarrow\)` example: `gender == 1 &amp; age &lt;=18`
+.large[.UA-red[`&amp;`]] represents the bolean operator **AND**&lt;br&gt;
+.footnotesize[*for example: `gender == 1 &amp; age &lt;=18`*]
+&lt;br&gt;
 
-- .UA-red[`|`] `\(\rightarrow\)` 'or' `\(\rightarrow\)` example: `gender == 1 | gender == 2`
+.large[.UA-red[`|`]] represents the bolean operator **OR**&lt;br&gt; 
+.footnotesize[*for example: `gender == 1 | gender == 2`*]
+&lt;br&gt;
 
-- .UA-red[`!`] `\(\rightarrow\)` 'not' `\(\rightarrow\)` example: `gender == 1 &amp; !age &lt;=18`
+.large[.UA-red[`!`]] represents the bolean operator **NOT**&lt;br&gt;
+.footnotesize[*for example: `gender == 1 &amp; !age &lt;=18`*]
 
 ---
 
@@ -510,7 +521,7 @@ We can combine conditions!
 
 If you want some more material and a place to exercise your skills? This online and freetutorial (made with the package  `learnr`) is strongly advised!
 
-&lt;img src="Interactive_tutorial_dplyr.jpg" width="50%" height="50%" /&gt;
+&lt;img src="Interactive_tutorial_dplyr.jpg" alt="" width="50%" height="50%" /&gt;
 
 https://allisonhorst.shinyapps.io/dplyr-learnr/#section-welcome
 
@@ -542,10 +553,10 @@ class: inverse-blue
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

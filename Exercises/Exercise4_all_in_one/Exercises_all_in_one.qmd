@@ -142,8 +142,11 @@ in front of it. Remove that `#` so the code will be executed.*
 ```{r}
 #| echo: true
 
-# CODE HERE
+#library(patchwork)
 
+# YOUR CODE HERE
+
+# P1 / P2 / P3
 ```
 
 *What is your conclusion?*
@@ -171,6 +174,8 @@ that `#` so the code will be executed.*
 #| echo: true
 
 # CODE HERE
+
+#(P1 + P2) / (P3 + P4 + P5)
 
 ```
 

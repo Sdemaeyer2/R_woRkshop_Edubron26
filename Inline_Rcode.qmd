@@ -87,11 +87,19 @@ If we discuss the results of this model we want to refer to the estimates and co
 ```{r}
 list_lm <- tidy(Model_lm, conf.int = TRUE) %>%
   ## Remove the brackets around the Intercept-term
-  mutate(term = ifelse(term == "(Intercept)", yes = "Intercept", no = term)) %>%
+  mutate(
+    term = ifelse(term == "(Intercept)", yes = "Intercept", no = term)
+    ) %>%
   ## Round the values to 2 decimals
-  mutate_at(vars(estimate, conf.low, conf.high), fmt_fix_digits, 2) %>%
+  mutate_at(
+    vars(estimate, conf.low, conf.high), 
+    fmt_fix_digits,
+    2
+    ) %>%
   ## Create a new variable 'ci' by glueing the lower and upper limit
-  mutate(ci = glue("[{conf.low}", "{conf.high}]")) %>%
+  mutate(
+    ci = glue("[{conf.low}", "{conf.high}]")
+    ) %>%
   select(term, estimate, ci) %>%
   ## Apply the super_split function
   super_split(term)

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>ICO Workshop R &amp; RStudio - Part 2</title>
+    <title>A reProducible woRkflow with Quarto</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.30/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="extra.css" type="text/css" />
@@ -52,11 +52,10 @@ class: title-slide, center, middle
 &lt;/style&gt;
 
 
-&lt;div class="my-logo-left"&gt; &lt;img src="img/UA-eng-hor-1-RGB.jpg" width="110%"/&gt; &lt;/div&gt;
-&lt;div class="my-logo-right"&gt; &lt;img src="img/ICO-logo.png" width="90%"/&gt; &lt;/div&gt;
+&lt;div class="my-logo-left"&gt; &lt;img src="img/edubron-en-rgb.jpg" width="100%" /&gt; &lt;/div&gt;
+&lt;div class="my-logo-right"&gt; &lt;img src="img/Logo Methods Hub.png" width="100%"/&gt; &lt;/div&gt;
 
-
-# ICO Workshop R &amp; RStudio
+# A reProducible woRkflow with Quarto
 .font160[
 .SW-greenD[Part 2]
 ]
@@ -67,7 +66,7 @@ Sven De Maeyer &amp; Tine van Daal
 
 .font80[
 .UA-red[
-2nd - 4th July, 2024
+2nd - 3th March, 2026
 ]
 ]
 
@@ -77,7 +76,7 @@ class: inverse-green, left
 # Overview
 
 .center2[
-- What is markdown --- ([Go to that section](#part1))
+- What is Markdown? --- ([Go to that section](#part1))
 - Integrating Markdown and R code --- ([Go to that section](#part2))
 - Creating a basic Quarto document --- ([Go to that section](#part3))
 
@@ -87,7 +86,7 @@ class: inverse-green, left
 class: inverse-green, center, middle
 name: part1
 
-# 1. What is markdown?
+# 1. What is Markdown?
 
 ---
 
@@ -105,7 +104,7 @@ name: part1
 
 ## Basic syntax
 
-&lt;img src="markdown_basic.jpg" width="55%" height="55%" /&gt;
+&lt;img src="markdown_basic.jpg" alt="" width="55%" height="55%" /&gt;
 
 ---
 
@@ -159,7 +158,7 @@ Two roads with the same destination, but...
 ## How Quarto works...
 
 .center2[
-&lt;img src="Quarto_Flow.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_Flow.jpg" alt="" width="90%" height="90%" /&gt;
 ]
 ---
 ## Quarto info
@@ -181,13 +180,13 @@ see: https://quarto.org/docs/extensions/
 ---
 ## Installing Quarto
 
-&lt;img src="Quarto_webpage.jpg" width="60%" height="60%" /&gt;
+&lt;img src="Quarto_webpage.jpg" alt="" width="60%" height="60%" /&gt;
 
 .UA-red[**Click on GET STARTED**]
 ---
 ## Installing Quarto
 
-&lt;img src="download_quarto.jpg" width="60%" height="60%" /&gt;
+&lt;img src="download_quarto.jpg" alt="" width="60%" height="60%" /&gt;
 
 .UA-red[**Choose the correct version for your pc**]
 
@@ -230,7 +229,7 @@ name: part3
 
 .pull-right[
 Result:
-&lt;img src="New_Quarto1.jpg" width="100%" height="100%" /&gt;
+&lt;img src="New_Quarto1.jpg" alt="" width="100%" height="100%" /&gt;
 ]
 
 
@@ -246,7 +245,7 @@ Result:
 
 .pull-right[
 Result:
-&lt;img src="New_Quarto2.jpg" width="100%" height="100%" /&gt;
+&lt;img src="New_Quarto2.jpg" alt="" width="100%" height="100%" /&gt;
 ]
 
 ---
@@ -255,7 +254,7 @@ Result:
 .pull-left[
 
 .UA-red[**Source editor**]
-&lt;img src="New_Quarto2.jpg" width="90%" height="90%" /&gt;
+&lt;img src="New_Quarto2.jpg" alt="" width="90%" height="90%" /&gt;
 
 = raw 'markdown' language
 ]
@@ -263,7 +262,7 @@ Result:
 .pull-right[
 
 .UA-red[**Visual editor**]
-&lt;img src="New_Quarto3.jpg" width="90%" height="90%" /&gt;
+&lt;img src="New_Quarto3.jpg" alt="" width="90%" height="90%" /&gt;
 
 = like a worddoc editor (see what you get)
 ]
@@ -276,7 +275,7 @@ Result:
 YAML
 ]
 
-&lt;img src="Quarto_Yaml.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_Yaml.jpg" alt="" width="100%" height="100%" /&gt;
 
 To set some of the parameters (aka **Metadata**)
 ]
@@ -318,26 +317,30 @@ While constructing your Quarto document you can RUN code chunks
 
 Click the green arrow (top-right corner of code chunk) 
 
-&lt;img src="Quarto_run_code_chunk.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_run_code_chunk.jpg" alt="" width="100%" height="100%" /&gt;
 
 As a result you get the output printed in your Quarto document
 
-&lt;img src="Quarto_run_code_chunk2.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_run_code_chunk2.jpg" alt="" width="100%" height="100%" /&gt;
 
 ---
 ## Code chunks 
 
 .UA-red[**ATTENTION!**]: The order of code chunks do matter. If you want to run all the code in the code chunks before a certain code chunk, you can click on the button aside of the green arrow (downward green arrow)
 
+.center2[
+&lt;img src="Quarto_run_previous_code_blocks.png" alt="" width="80%" height="80%" /&gt;
+]
+
 ---
 ## Adding a new code chunk 
 
 .pull-left[
-&lt;img src="Quarto_add_code_chunk.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_add_code_chunk.jpg" alt="" width="80%" height="80%" /&gt;
 ]
 
 .pull-right[
-&lt;img src="Quarto_add_code_chunk2.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_add_code_chunk2.jpg" alt="" width="80%" height="80%" /&gt;
 ]
 
 .center2[
@@ -358,7 +361,7 @@ Mac: .UA-red[**`option + command + i`**]
 ---
 ## Code chunk options
 
-&lt;img src="Quarto_code_chunk_options.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_code_chunk_options.jpg" alt="" width="80%" height="80%" /&gt;
 
 - `#| include: false` `\(/rightarrow\)` code and output (result) are hidden but code is executed
 
@@ -379,11 +382,11 @@ More detailed information: https://yihui.org/knitr/options/
 You can easily insert citations and references
 
 .pull-left[
-&lt;img src="Quarto_insert_reference1.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_insert_reference1.jpg" alt="" width="80%" height="80%" /&gt;
 ]
 
 .pull-right[
-&lt;img src="Quarto_insert_reference2.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_insert_reference2.jpg" alt="" width="80%" height="80%" /&gt;
 ]
 
 ---
@@ -402,17 +405,17 @@ To highlight some specific piece of text you can use a callout
 
 It will generate something like this in your final html document:
 
-&lt;img src="Quarto_callout_example.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_callout_example.jpg" alt="" width="80%" height="80%" /&gt;
 
 ---
 ## Inserting a callout
 
 .pull-left[
-&lt;img src="Quarto_insert_callout.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_insert_callout.jpg" alt="" width="80%" height="80%" /&gt;
 ]
 
 .pull-right[
-&lt;img src="Quarto_inside_callout2.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_inside_callout2.jpg" alt="" width="80%" height="80%" /&gt;
 ]
 
 ---
@@ -421,12 +424,12 @@ It will generate something like this in your final html document:
 In an html file you can also add Tabsets... They look like this in the resulting html file:
 
 .pull-left[
-&lt;img src="Quarto_Tabset_result1.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_Tabset_result1.jpg" alt="" width="100%" height="100%" /&gt;
 
 ]
 
 .pull-right[
-&lt;img src="Quarto_Tabset_result2.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_Tabset_result2.jpg" alt="" width="100%" height="100%" /&gt;
 ]
 
 This is a way to save space on the canvas and keep your file tight and neat. 
@@ -435,7 +438,7 @@ This is a way to save space on the canvas and keep your file tight and neat.
 
 Go to .UA-red[**Insert**] and choose .UA-red[**Tabset**]
 
-&lt;img src="Quarto_insert_Tabset.jpg" width="60%" height="60%" /&gt;
+&lt;img src="Quarto_insert_Tabset.jpg" alt="" width="60%" height="60%" /&gt;
 
 ---
 ## Adding a Tabset
@@ -444,7 +447,7 @@ Go to .UA-red[**Insert**] and choose .UA-red[**Tabset**]
 
 This opens the following menu:
 
-&lt;img src="Quarto_Tabset1.jpg" width="60%" height="60%" /&gt;
+&lt;img src="Quarto_Tabset1.jpg" alt="" width="60%" height="60%" /&gt;
 
 
 ]
@@ -453,7 +456,7 @@ This opens the following menu:
 
 You can fill in the titles for each tab in the Tabset:
 
-&lt;img src="Quarto_Tabset2.jpg" width="60%" height="60%" /&gt;
+&lt;img src="Quarto_Tabset2.jpg" alt="" width="60%" height="60%" /&gt;
 
 
 ]
@@ -463,7 +466,7 @@ You can fill in the titles for each tab in the Tabset:
 
 In the Quarto document you now have a section to make content for each tab in the Tabset:
 
-&lt;img src="Quarto_Tabset_example_code.jpg" width="60%" height="60%" /&gt;
+&lt;img src="Quarto_Tabset_example_code.jpg" alt="" width="60%" height="60%" /&gt;
 
 
 ---
@@ -477,7 +480,7 @@ This is something you can tweak in the YAML of the file
 
 For instance, let's choose the formatting according to the `journal` theme
 
-&lt;img src="Quarto_set_theme.jpg" width="80%" height="80%" /&gt;
+&lt;img src="Quarto_set_theme.jpg" alt="" width="80%" height="80%" /&gt;
 
 ---
 ## Changing your theme
@@ -495,7 +498,7 @@ Of course, if you feel adventurous you can build your own theme (e.g., to meet t
 
 .pull-right[
 
-&lt;img src="Quarto_theme_superhero.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_theme_superhero.jpg" alt="" width="100%" height="100%" /&gt;
 
 ]
 
@@ -510,14 +513,14 @@ See https://quarto.org/docs/output-formats/html-basics.html
 
 For instance, let's also add a *table of contents* (toc) that contains all headers up till level 3
 
-&lt;img src="Quarto_add_toc_YAML.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_add_toc_YAML.jpg" alt="" width="100%" height="100%" /&gt;
 
 
 ]
 
 .pull-right[
 
-&lt;img src="Quarto_add_toc.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_add_toc.jpg" alt="" width="100%" height="100%" /&gt;
 
 ]
 
@@ -530,14 +533,14 @@ This behaviour can be changed in the YAML by introducing the `code-fold: true` o
 
 .pull-left[
 
-&lt;img src="Quarto_codefold_YAML.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_codefold_YAML.jpg" alt="" width="100%" height="100%" /&gt;
 
 ]
 
 
 .pull-right[
 
-&lt;img src="Quarto_codefold_result.jpg" width="100%" height="100%" /&gt;
+&lt;img src="Quarto_codefold_result.jpg" alt="" width="100%" height="100%" /&gt;
 
 ]
 
@@ -546,10 +549,10 @@ This behaviour can be changed in the YAML by introducing the `code-fold: true` o
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"ratio": "16:9",
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "ratio": "16:9",
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

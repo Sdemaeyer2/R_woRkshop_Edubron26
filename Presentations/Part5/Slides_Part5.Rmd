@@ -1,5 +1,5 @@
 ---
-title: 'Workshop R & RStudio'
+title: 'A reProducible woRkflow with Quarto'
 output:
   xaringan::moon_reader:
     css: [default, default-fonts, extra.css]
@@ -62,11 +62,11 @@ data("penguins")
 ```
 
 
-<div class="my-logo-left"> <img src="img/UA-eng-hor-1-RGB.jpg" width="110%"/> </div>
-<div class="my-logo-right"> <img src="img/ICO-logo.png" width="90%"/> </div>
+<div class="my-logo-left"> <img src="img/edubron-en-rgb.jpg" width="100%" /> </div>
+<div class="my-logo-right"> <img src="img/Logo Methods Hub.png" width="100%"/> </div>
 
 
-# ICO Workshop R & RStudio
+# A reProducible woRkflow with Quarto
 .font160[
 .SW-greenD[Part 5]
 ]
@@ -77,7 +77,7 @@ Sven De Maeyer & Tine van Daal
 
 .font80[
 .UA-red[
-2nd - 4th July, 2024
+2nd - 3th March, 2026
 ]
 ]
 
@@ -126,18 +126,15 @@ penguins %>%
 ]
 
 .pull-right[
-.UA-red[Watch out for NA's!!]
+.UA-red[Watch out for **NA's**!!]
 .footnotesize[
 ```{r}
 library(palmerpenguins)
 data("penguins")
 
-cor(penguins$flipper_length_mm, 
-    penguins$body_mass_g)
+cor(penguins$flipper_length_mm, penguins$body_mass_g)
 
-cor(penguins$flipper_length_mm, 
-    penguins$body_mass_g, 
-   use = "complete.obs")
+cor(penguins$flipper_length_mm, penguins$body_mass_g, use = "complete.obs")
 ```
 ]
 ]
@@ -152,22 +149,20 @@ cor.test(penguins$flipper_length_mm,
 ```
 
 ---
-<div class="my-logo-right"> <img src="broom_logo.png" width="100%"/> </div>
+<div class="my-logo-right"> <img src="broom_logo.png" width="80%"/> </div>
 
-## The .UA-red[`broom`]  package
+## The .UA-red[`broom`]  package (part of the tidyverse)
 
-- Package in `tidyverse` 
+Creates .SW-greenD[**tibbles**] based on results from a statistical analysis!
 
-- Creates .SW-greenD[**tibbles**] based on results from a statistical analysis!
-
-.UA-red[`tidy()`]: output from an analysis as a tibble
+Function .UA-red[**`tidy()`**] represents output of an analysis as a tibble
 
 ```{r}
 library(broom)
-C <- cor.test(penguins$flipper_length_mm, 
-        penguins$body_mass_g)
 
+C <- cor.test(penguins$flipper_length_mm, penguins$body_mass_g)
 tidy(C)
+
 ```
 
 ---
@@ -190,11 +185,11 @@ penguins %>%
 ## Correlations between multiple variabeles visualized
 
 .pull-left[
-Package: .UA-red[`GGally`]
+Package: .UA-red[**`GGally`**]
 
-Function: .UA-red[`ggpairs()`]
+Function: .UA-red[**`ggpairs()`**]
 
-Result: a ggplot object...
+Results in... **a ggplot-object**...
 
 .footnotesize[
 ```{r, eval = F}
@@ -211,7 +206,8 @@ penguins %>%
     columns = c(
       "flipper_length_mm", "body_mass_g",
       "bill_length_mm", "bill_depth_mm")
-    )
+    ) + 
+  {{theme_minimal()}}
 ```
 ]
 ]
@@ -228,8 +224,11 @@ penguins %>%
     body_mass_g
   ) %>%
   ggpairs(
-    columns = c("flipper_length_mm", "body_mass_g",
-                "bill_length_mm", "bill_depth_mm"))
+    columns = c(
+      "flipper_length_mm", "body_mass_g", "bill_length_mm", "bill_depth_mm"
+      )
+    ) +
+  theme_minimal()
 ```
 ]
 
@@ -253,12 +252,16 @@ penguins %>%
   ggpairs(
     aes(color = species),
     columns = c(
-      "flipper_length_mm", "body_mass_g",
-      "bill_length_mm", "bill_depth_mm")) +
+      "flipper_length_mm", "body_mass_g", "bill_length_mm", "bill_depth_mm"
+      )
+    ) +
   scale_colour_manual(
-    values = c("darkorange","purple","cyan4")) +
+    values = c("darkorange","purple","cyan4")
+    ) +
   scale_fill_manual(
-    values = c("darkorange","purple","cyan4"))
+    values = c("darkorange","purple","cyan4")
+    ) + 
+  theme_minimal()
 ```
 ]
 ]
@@ -278,7 +281,8 @@ penguins %>%
     columns = c("flipper_length_mm", "body_mass_g",
                 "bill_length_mm", "bill_depth_mm")) +
   scale_colour_manual(values = c("darkorange","purple","cyan4")) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"))
+  scale_fill_manual(values = c("darkorange","purple","cyan4")) + 
+  theme_minimal()
 ```
 ]
 
@@ -292,11 +296,12 @@ name: part2
 ## First some descriptives
 
 .pull-left[
-Compare Gentoo with Adelie penguins on `body_mass_g`
+Compare the `body_mass_g` of the "Gentoo" and "Adelie" penguins 
 
 .footnotesize[
 ```{r, eval = F}
-library(kableExtra)
+{{library(kableExtra)}}
+
 penguins %>% 
   select(
     species,
@@ -311,7 +316,7 @@ penguins %>%
     mean = mean(body_mass_g, na.rm = TRUE),
     sd = sd(body_mass_g, na.rm = TRUE)
   ) %>%
-  kable()
+  {{kable()}}
 ```
 ]
 ]
@@ -356,9 +361,13 @@ penguins %>%
     species == 'Adelie' | species == 'Gentoo'
   ) %>%
   ggboxplot(
-    x = "species", y = "body_mass_g", 
-          color = "species", palette = c("#00AFBB", "#E7B800"),
-        ylab = "Body Mass (g)", xlab = "Species")
+    x = "species",
+    y = "body_mass_g", 
+    color = "species",
+    palette = c("#00AFBB", "#E7B800"),
+    ylab = "Body Mass (g)",
+    xlab = "Species"
+    )
 ```
 ]
 ]
@@ -468,8 +477,10 @@ knitr::include_graphics("lm_formula.png")
 
 
 ```{r eval = T, echo = T}
-Model1 <- lm(flipper_length_mm ~ body_mass_g, 
-             data = penguins)
+Model1 <- lm(
+  flipper_length_mm ~ body_mass_g, 
+  data = penguins
+  )
 ```
 
 
@@ -484,65 +495,69 @@ summary(Model1)
 ]
 
 ---
-<div class="my-logo-right"> <img src="broom_logo.png" width="100%"/> </div>
+<div class="my-logo-right"> <img src="broom_logo.png" width="80%"/> </div>
 
 ## The .UA-red[`broom`]  package
 
-Function: .UA-red[`tidy()`]
+Function: .UA-red[**`tidy()`**]
 
-Result: tidy dataset with information on **parameter estimates**
+Result: **tidy data set** with information on **parameter estimates**
 
 ```{r}
-tidy(Model1, 
-     conf.int = TRUE,
-     conf.level = .90)
+tidy(
+  Model1, 
+  conf.int = TRUE,
+  conf.level = .90
+  )
 ```
 
 ---
-<div class="my-logo-right"> <img src="broom_logo.png" width="100%"/> </div>
+<div class="my-logo-right"> <img src="broom_logo.png" width="80%"/> </div>
 
 ## The .UA-red[`broom`]  package + .UA-red[`kable()`]
 
 
 ```{r}
-tidy(Model1, 
-     conf.int = TRUE,
-     conf.level = .90) %>%
+tidy(
+  Model1, 
+  conf.int = TRUE,
+  conf.level = .90
+  ) %>%
   kable()
 ```
 
 ---
-<div class="my-logo-right"> <img src="broom_logo.png" width="100%"/> </div>
+<div class="my-logo-right"> <img src="broom_logo.png" width="80%"/> </div>
 
 ## The .UA-red[`broom`] package
 
-Function: .UA-red[`glance()`]
+Function: .UA-red[**`glance()`**]
 
-Result: tidy dataset with information on **model fit**
+Result: tidy data set with information on **model fit**
 
 ```{r}
 glance(Model1)
 ```
 
 ---
-<div class="my-logo-right"> <img src="broom_logo.png" width="100%"/> </div>
+<div class="my-logo-right"> <img src="broom_logo.png" width="80%"/> </div>
 
 ## The .UA-red[`broom`] package
 
-Function: .UA-red[`augment()`]
+Function: .UA-red[**`augment()`**]
 
-Result: add information to the dataset based on the model like **fitted values**, **residuals**, ...
+Result: add information to the data set based on the model like **fitted values**, **residuals**, ...
 
 ```{r}
 augment(Model1)
 ```
 
 ---
-<div class="my-logo-right"> <img src="broom_logo.png" width="100%"/> </div>
+<div class="my-logo-right"> <img src="broom_logo.png" width="80%"/> </div>
 
 ## The .UA-red[`broom`] package to check some assumptions
 
-Functions: .UA-red[`augment()`] + .UA-red[`geom_histogram()`]
+Functions: .UA-red[**`augment()`**] + .UA-red[**`geom_histogram()`**]
 
 Result: Are the residuals normally distributed?
 
@@ -585,11 +600,11 @@ augment(Model1) %>%
 ]
 
 ---
-<div class="my-logo-right"> <img src="broom_logo.png" width="100%"/> </div>
+<div class="my-logo-right"> <img src="broom_logo.png" width="80%"/> </div>
 
 ## The .UA-red[`broom`] package to check some assumptions
 
-Functions: .UA-red[`augment()`] + .UA-red[`geom_point()`]
+Functions: .UA-red[**`augment()`**] + .UA-red[**`geom_point()`**]
 
 Resultaat: Homoscedasticity?
 
@@ -634,11 +649,11 @@ augment(Model1) %>%
 ]
 
 ---
-<div class="my-logo-right"> <img src="broom_logo.png" width="100%"/> </div>
+<div class="my-logo-right"> <img src="broom_logo.png" width="80%"/> </div>
 
 ## .UA-red[`broom`] package to visualise model results
 
-Functions: .UA-red[`augment()`] + .UA-red[`geom_line()`]
+Functions: .UA-red[**`augment()`**] + .UA-red[**`geom_line()`**]
 
 Result: Plot of the fitted regression model (the line)
 
@@ -727,9 +742,11 @@ M1_info %>% rbind(M2_info) %>% kable()
 augment(Model2) %>%
   ggplot() +
   geom_point(
-    aes(x = body_mass_g,
-        y = flipper_length_mm,
-        color = sex),
+    aes(
+      x = body_mass_g,
+      y = flipper_length_mm,
+      color = sex
+      ),
     alpha = .6
   ) +
   geom_line(
@@ -773,9 +790,9 @@ augment(Model2) %>%
 
 ## Some cool stuff with the .UA-red[`sjplot`] package
 
-For instance, create an html-table with the estimates of two models: Model1 & Model2
+Create an **html-table** that presents the estimates of two models: Model1 & Model2
 
-Function: .UA-red[`tab_model()`]
+Function: .UA-red[**`tab_model()`**]
 
 ```{r}
 library(sjPlot)
@@ -786,15 +803,17 @@ tab_model(Model1, Model2)
 
 ## Some cool stuff with the .UA-red[`sjplot`] package
 
-Create a plot of predicted values based on the effect of body_mass_g
+Create a plot of predicted values based on the effect of `body_mass_g`
 
-Function: .UA-red[`plot_model()`] with `type = "pred"` specifically to plot **predicted values**
+Function: .UA-red[**`plot_model()`**] with `type = "pred"` specifically to plot **predicted values**
 
 .pull-left[
 ```{r, echo=TRUE, eval=FALSE}
-plot_model(Model2, 
-           type = "pred", 
-           terms = "body_mass_g")
+plot_model(
+  Model2, 
+  type = "pred",
+  terms = "body_mass_g"
+  ) 
 ```
 ]
 
@@ -807,14 +826,16 @@ plot_model(Model2, type = "pred", terms = "body_mass_g")
 
 ## Some cool stuff with the .UA-red[`sjplot`] package
 
-Function: .UA-red[`plot_model()`] creates a **ggplot object**! So we can customize it!
+Function: .UA-red[**`plot_model()`**] creates a **ggplot object**! So we can customize it!
 
 .pull-left[
 ```{r, echo=TRUE, eval=FALSE}
-plot_model(Model2, 
-           type = "pred", 
-           terms = "body_mass_g") +
-  theme_minimal()
+plot_model(
+  Model2, 
+  type = "pred", 
+  terms = "body_mass_g"
+  ) +
+  {{theme_minimal()}}
 ```
 ]
 
@@ -829,12 +850,11 @@ plot_model(Model2, type = "pred", terms = "body_mass_g") +
 
 Create a plot of the different parameter estimates in the model
 
-Function: .UA-red[`plot_model()`] without a `type = pred` argument
+Function: .UA-red[**`plot_model()`**] without a `type = pred` argument
 
 .pull-left[
 ```{r, echo=TRUE, eval=FALSE}
-plot_model(Model2) +
-  theme_minimal()
+plot_model(Model2) + theme_minimal()
 ```
 ]
 
@@ -847,6 +867,7 @@ plot_model(Model2) +
 ---
 ##Other Statistical Modelling in R
 
+<br>
 Structural Equation Modelling: `lavaan`
 
 Multilevel analyses: `lme4`

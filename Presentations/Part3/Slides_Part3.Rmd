@@ -1,5 +1,5 @@
 ---
-title: 'ICO Workshop R & RStudio'
+title: 'A reProducible woRkflow with Quarto'
 output:
   xaringan::moon_reader:
     css: [default, default-fonts, extra.css]
@@ -58,7 +58,7 @@ extrafont::loadfonts()
 <div class="my-logo-left"> <img src="img/edubron-en-rgb.jpg" width="100%" /> </div>
 <div class="my-logo-right"> <img src="img/Logo Methods Hub.png" width="100%"/> </div>
 
-# ICO Workshop R & RStudio
+# A reProducible woRkflow with Quarto
 .font160[
 .SW-greenD[Part 3]
 ]
@@ -69,7 +69,7 @@ Sven De Maeyer & Tine van Daal
 
 .font80[
 .UA-red[
-2nd - 4th July, 2024
+2nd - 3th March, 2026
 ]
 ]
 
@@ -81,7 +81,6 @@ class: inverse-green, left
 .center2[
 - Tidyverse --- ([Click here](#part1))
 - The `dplyr` package --- ([Cliick here](#part2))
-- Implementation --- ([Click here](#part3))
 
 ]
 
@@ -104,18 +103,21 @@ knitr::include_graphics("tidyverse_data_science.png")
 ---
 
 ## Why .UA-red[`tidyverse`]?
+<br>
+More accessible for beginners
+<br>
 
-- more accessible for beginners
+Consistent approach for all potential tasks
+<br>
 
-- consistent approach for all potential tasks
+Powerful potential applications with minimum 'effort'
+<br>
 
-- powerful potential applications mith minimum 'effort'
-
-- can give confidence to explore `R`
+Can give you the confidence to explore `R`
 ---
 ## Tibble
 
-Normally we work with a  .SW-greenD[dataframe] in `R` but we can have very complex data-structures as well (e.g., lists, matrices, ...)
+Normally we work with a .SW-greenD[dataframe] in `R` but we can have very complex data-structures as well (e.g., lists, matrices, ...)
 
 In the `tidyverse` ecosystem we work with a simple form of data-structure: a `tibble`
 
@@ -226,7 +228,6 @@ or
 Numbers <- c(1,2,3,4)
 mean(Numbers)
 ```
-
 you can do
 
 ```{r, eval = FALSE}
@@ -234,7 +235,7 @@ c(1,2,3,4) %>%
   mean( )
 ```
 
-With the `%>%` you can write a sentence like:
+With the **`%>%`** you can write a sentence like:
 
 > *I .UA-red[`%>%`] woke up .UA-red[`%>%`], took a shower .UA-red[`%>%`], got breakfast .UA-red[`%>%`], took the train .UA-red[`%>%`] and arrived at the ICO course .UA-red[`%>%`] …*
 ]
@@ -316,7 +317,7 @@ str(Friends$condition_factor)
 ---
 ## Let's apply .UA-red[`select()`]
 
-To select variables.
+.font-size140[To **select** variables.]
 
 Some examples with the Friends data:
 
@@ -334,7 +335,7 @@ Friends %>%
 ---
 ## Rename variables with .UA-red[`rename()`]
 
-Notice how the variable `occassion` is misspelled! Pretty enoying when coding... But we can easily rename variables.
+Notice how the variable `occassion` is misspelled! Pretty annoying when coding... But we can easily **rename** variables.
 
 Function `rename(new_name = old_name)`
 
@@ -352,9 +353,9 @@ Friends <- Friends %>%
 ---
 ## Super combo 1: .UA-red[`group_by() + summarize( )`] 
 
-- transform a tibble to a *grouped tibble* making use of `group_by()` 
+Transform a tibble to a *grouped tibble* making use of `group_by()` 
 
-- calculate summary stats per group making use of `summarize()`
+Calculate summary stats per group making use of `summarize()`
 
 > .SW-greenD[*Calculate the average fluency and standard deviation per condition* ]
 
@@ -400,7 +401,7 @@ knitr::include_graphics("dplyr_case_when_sm.png")
 ---
 ## Super combo 2: .UA-red[`mutate() + case_when( )`] 
 
-To recode variables into new variables!
+To **recode** variables into new variables!
 
 .pull-left[
 > .SW-greenD[*We create a new categorical variant of fluency with 3 groups, then we select this new variable and have a look to the top 5 observations...* ]]
@@ -428,30 +429,41 @@ Friends %>%
 ---
 
 ## How to define conditions
+<br>
+.UA-red[`x == y`] $\rightarrow$ 'x is **equal** to y'
 
-- .UA-red[`x == y`] $\rightarrow$ 'x is equal to y'
+.UA-red[`x != y` ] $\rightarrow$ 'x is **NOT equal** to y'
 
-- .UA-red[`x != y` ] $\rightarrow$ 'x is NOT equal to y'
+<br>
 
-- .UA-red[`x < y`] $\rightarrow$ 'x is smaller than y'
+.UA-red[`x < y`] $\rightarrow$ 'x is **smaller** than y'
 
-- .UA-red[`x <= y`] $\rightarrow$ 'x is smaller or equal to y'
+.UA-red[`x <= y`] $\rightarrow$ 'x is **smaller or equal** to y'
 
-- .UA-red[`x > y`] $\rightarrow$ 'x is higher than y'
+<br>
 
-- .UA-red[`x >= y`] $\rightarrow$ 'x is higher or equal to y'
+.UA-red[`x > y`] $\rightarrow$ 'x is **higher** than y'
+
+.UA-red[`x >= y`] $\rightarrow$ 'x is **higher or equal** to y'
 
 ---
 
 ## Bolean operators
-
+<br>
 We can combine conditions!
+<br>
+<br>
 
-- .UA-red[`&`] $\rightarrow$ 'and' $\rightarrow$ example: `gender == 1 & age <=18`
+.large[.UA-red[`&`]] represents the bolean operator **AND**<br>
+.footnotesize[*for example: `gender == 1 & age <=18`*]
+<br>
 
-- .UA-red[`|`] $\rightarrow$ 'or' $\rightarrow$ example: `gender == 1 | gender == 2`
+.large[.UA-red[`|`]] represents the bolean operator **OR**<br> 
+.footnotesize[*for example: `gender == 1 | gender == 2`*]
+<br>
 
-- .UA-red[`!`] $\rightarrow$ 'not' $\rightarrow$ example: `gender == 1 & !age <=18`
+.large[.UA-red[`!`]] represents the bolean operator **NOT**<br>
+.footnotesize[*for example: `gender == 1 & !age <=18`*]
 
 ---
 

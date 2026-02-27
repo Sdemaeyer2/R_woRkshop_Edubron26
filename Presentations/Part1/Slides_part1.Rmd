@@ -58,7 +58,7 @@ extrafont::loadfonts()
 
 # A reProducible woRkflow with Quarto
 .font160[
-.SW-greenD[Getting started]
+.SW-greenD[Part 1]
 ]
 .font120[
 .SW-greenD[*About reproducibility and R*]
@@ -67,7 +67,7 @@ Sven De Maeyer & Tine van Daal
 
 .font80[
 .UA-red[
-2nd - 3th March, 2025
+2nd - 3th March, 2026
 ]
 ]
 
@@ -79,7 +79,7 @@ class: inverse-green, left
 .center2[
 1. RepRoducibility?! --- ([click here](#part1))
 2. Sta`R`t to be `R`eproducible --- ([click here](#part2))
-3. Welcome to the tidyverse! --- ([click here](#part3))
+3. A woRld of packages! --- ([click here](#part3))
 4. Working with `R`-projects --- ([click here](#part4))
 5. Importing data --- ([click here](#part5))
 
@@ -108,7 +108,7 @@ name: part1
 
 --
 
-.font140[.SW-greenD[**Reproducibility**]]<br>.SW-greenL[Research methods and data are shared in such a way that others can follow, reproduce, and reuse the decisions we have made.]
+.font140[.SW-greenD[**Reproducibility**]]<br>.SW-greenL[Research methods and data are shared in such a way that others can **follow, reproduce, and reuse** the decisions we have made.]
 
 <br>
 <br>
@@ -118,8 +118,19 @@ name: part1
 <br>
 <br>
 <br>
---
+
 .font80[Definitions taken from Edubron's [mission statement](https://www.uantwerpen.be/en/research-groups/edubron/research/open-science/) regarding Open Science.]
+
+---
+
+## A reproducible workflow = your external (research) hard drive
+
+.Large["*Can you redo that analysis to check ...?*"]
+
+--
+<center>
+<img src="img/reproducible_not.jpg" width="600" height="453" />
+</center>
 
 ---
 
@@ -198,7 +209,7 @@ datasaurus_dozen %>%
   annotate(
     geom = "text", x = 60, y = 52, size = 8, fontface = "bold",
     color = "#AAAA17",
-    label = "R is a staR in open science!"
+    label = "R is an open science staR!"
     ) +
   theme_void() +
   theme(legend.position = "none")
@@ -211,7 +222,7 @@ datasaurus_dozen %>%
 
 .pull-right[
 <br>
-`R` facilitates .SW-greenD[reproducibility] and open science practices by allowing you to write a **script**.
+`R` facilitates .SW-greenD[**reproducibility**] (and transparency) by allowing you to write a **script**.
 <br>
 <br>
 <br>
@@ -231,7 +242,7 @@ datasaurus_dozen %>%
     geom = "text", 
     x = 60, y = 52, size = 8, fontface = "bold",
     color = "#AAAA17",
-    label = "R is a staR in open science!"
+    label = "R is an open science staR!"
     ) +
   theme_void() +                #set theme of plot
   theme(legend.position = "none")
@@ -408,9 +419,58 @@ Fruit_data[3,]
 ]
 ]
 
---- 
+---
 
-## This is a reproducible workshop!
+## Type of objects
+
+<br>
+.pull-left[
+- *vectors*
+
+- matrices
+
+- arrays
+
+- *data frames*
+
+- lists
+
+- *functions*
+
+...
+]
+
+.pull-right[
+
+```{r, out.height = "80%", out.width="80%", eval = T, echo = F}
+knitr::include_graphics("img/Data_Types.png")
+```
+]
+
+.footnote[.small[
+<i class="fas fa-link" style="color: #FF0035;"></i> * Figure from https://www.edureka.co/blog/r-programming-language *]
+]
+
+---
+
+## Vectors
+
+```{r, out.height = "40%", out.width="40%", eval = T, echo = F}
+knitr::include_graphics("img/Vectors.png")
+```
+
+<br>
+
+.footnote[
+.small[
+<i class="fas fa-link" style="color: #FF0035;"></i> * Figure from https://www.edureka.co/blog/r-programming-language *
+]
+]
+
+
+---
+
+## This is a *repRoducible* workshop!
 
 Various types of files used during the workshop:
 
@@ -431,7 +491,7 @@ All these files can be found at the dedicated web-page: https://icoworkshop-rstu
 class: inverse-green, center, middle
 name: part3
 
-# 3. Welcome to the tidyverse!
+# 3. A woRld of packages!
 
 ---
 
@@ -506,6 +566,8 @@ install.packages("tidyverse", dependencies = T)
 ```
 ]
 
+--
+
 .pull-right[
 Packages should be .SW-greenD[**activated**] at the start of the session
 
@@ -532,13 +594,16 @@ name: part4
 ---
 
 ## Handling all these files
-During analyses, we will regularly handle different files:
+<br>
+During analyses, we will regularly **handle different files**:
 
 - data sets
 - scripts
 - output (html-files; figures; ...)
+<br>
+<br>
 
-Consequently, we should refer to these files in our code. 
+Consequently, we should **refer to these files in our code**. 
 
 ---
 
@@ -559,6 +624,8 @@ Below is an example  of an absolute path:
 ]
 ]
 
+--
+
 .pull-right[
 .SW-greenD[**USING RELATIVE PATHS**]  
 
@@ -575,20 +642,24 @@ Below is an example of a relative path:
 ---
 
 ## Sharing projects? 
-
-If I put a project of Sven on my laptop, the .SW-greenD[RELATIVE paths] might get me into trouble.  
+<br>
+If Tine puts a project of Sven on her laptop, the .SW-greenD[RELATIVE paths] might get her into trouble.  
 For example, the Rmd-file 'Slides_part1.Rmd' is located at
 
-`'c:/Users/Sven/Dropbox/ICO_R_2022/Presentations/Part 1/Slides_part1.Rmd' `
+`'c:/Users/Sven/Dropbox/R_workshop_Edubron26/Presentations/Part 1/Slides_part1.Rmd' `
 <br>   
-Of course, I do not have the same structure on my laptop... <br>   
-To facilitate sharing of projects, the package `here` has been created. 
+<br>
+
+Of course, Tine doesn't have the same structure on her laptop... <br>   
+<br>
+
+To facilitate sharing of projects, the package **`here`** has been created. 
 
 ---
 
 ## Creating relative paths with function .UA-red[`here()`]  
 
-The function `here()` creates a paths relative to the top-level directory of my laptop.
+The function `**here()**` creates a paths relative to the top-level directory of my laptop.
 ```{r}
 library(here)
 here()
@@ -604,7 +675,7 @@ class: inverse-blue, center, middle
 
 <br>
 
-.small[You can find the folder `Exercises` at the Github: <https://github.com/Sdemaeyer2/R_workshop_ICO2024/>. Download this folder and put it somewhere on your laptop.]
+.small[You can find the folder `Exercises` at the Github: <https://github.com/Sdemaeyer2/R_workshop_Edubron26/>. Download this folder and put it somewhere on your laptop.]
 ]
 ]
 

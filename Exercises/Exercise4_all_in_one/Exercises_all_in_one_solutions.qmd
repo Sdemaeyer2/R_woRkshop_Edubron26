@@ -83,9 +83,10 @@ Import the data
 
 transition_data <- read.table(
   here("Data", "transition_data.csv"), 
-        header = TRUE,
-        sep = ",", 
-        dec = ".")
+  header = TRUE,
+  sep = ",", 
+  dec = "."
+  )
 ```
 
 ## 1.2 Check data
@@ -265,10 +266,17 @@ data frame `transition_data_cleaned`
 transition_data_cleaned <- 
   transition_data %>%
   ## Convert ID variables to categorical variables (1)
-  mutate_at(vars(ID_School, ID_Class, ID_Student,
-                 Educ_level, Gender,
-                 SES_language, SES_neighbourhood, SES_educ_level),
-            as.character) %>%
+  mutate_at(
+    vars(
+      ID_School,
+      ID_Class,
+      ID_Student,
+      Educ_level,
+      Gender,
+      SES_language,
+      SES_neighbourhood,
+      SES_educ_level),
+    as.character) %>%
   ## Recode categories of categorical variables and store as a new' variable (2)
   mutate(
     Educ_level_cat = case_when(
@@ -317,16 +325,26 @@ function `table()`.*
 ```{r}
 #| echo: true
 
-table(transition_data_cleaned$Educ_level,
-      transition_data_cleaned$Educ_level_cat)
-table(transition_data_cleaned$Gender,
-      transition_data_cleaned$Gender_cat)
-table(transition_data_cleaned$SES_language,
-      transition_data_cleaned$SES_language_cat)
-table(transition_data_cleaned$SES_neighbourhood,
-      transition_data_cleaned$SES_neighbourhood_cat)
-table(transition_data_cleaned$SES_educ_level,
-      transition_data_cleaned$SES_educ_level_cat)
+table(
+  transition_data_cleaned$Educ_level, 
+  transition_data_cleaned$Educ_level_cat
+  )
+table(
+  transition_data_cleaned$Gender, 
+  transition_data_cleaned$Gender_cat
+  )
+table(
+  transition_data_cleaned$SES_language, 
+  transition_data_cleaned$SES_language_cat
+  )
+table(
+  transition_data_cleaned$SES_neighbourhood,
+  transition_data_cleaned$SES_neighbourhood_cat
+  )
+table(
+  transition_data_cleaned$SES_educ_level,
+  transition_data_cleaned$SES_educ_level_cat
+  )
 ```
 
 ## 1.4 Prepare data for analysis
@@ -356,18 +374,22 @@ Finally, you decide to exclude all students in the arts education track
 
 transition_data_for_analysis <- 
   transition_data_cleaned %>%
-  select(contains("ID"),
-         starts_with("Educ_"),
-         contains("Gender"),
-         contains("SES"),
-         contains("_score"),
-         contains("motivationR")) %>%
-  mutate(IQ_Z = scale(IQ_score),
-         Reading_Z = scale(Reading_score),
-         Math_Z = scale(Math_score),
-         Auto_mot_Z = scale(Autonomous_motivationR), # use the recoded variable!
-         Contr_mot_Z = scale(Controlled_motivationR),
-         Amot_Z = scale(AmotivationR)) %>%
+  select(
+    contains("ID"),
+    starts_with("Educ_"),
+    contains("Gender"),
+    contains("SES"),
+    contains("_score"),
+    contains("motivationR")
+    ) %>%
+  mutate(
+    IQ_Z = scale(IQ_score),
+    Reading_Z = scale(Reading_score),
+    Math_Z = scale(Math_score),
+    Auto_mot_Z = scale(Autonomous_motivationR), # use the recoded variable!
+    Contr_mot_Z = scale(Controlled_motivationR),
+    Amot_Z = scale(AmotivationR)
+    ) %>%
   filter(Educ_level != 4)
 ```
 
@@ -415,15 +437,23 @@ transition_data_for_analysis %>%
     size = .3
   ) +  
   geom_segment(  
-    aes(x = ID_School, xend = ID_School, 
-        y = 0, yend = n, color = color_ID),
+    aes(
+      x = ID_School, 
+      xend = ID_School, 
+      y = 0, 
+      yend = n, 
+      color = color_ID
+      ),
     ## Makes the size of the lines thinner
     size = .4
     ) +
   coord_flip() +
   ## Place counts on top (to specify like this after having used coord_flip)
-  scale_y_continuous(position = "right",
-                     breaks = c(seq(50, 200, 50), 233), expand = c(0,0.4)) +
+  scale_y_continuous(
+    position = "right",
+    breaks = c(seq(50, 200, 50), 233),
+    expand = c(0,0.4)
+    ) +
   scale_color_manual(values = c("red", "black")) +
   labs(
     title = "Number of observations per school (arranged in descending order)",
@@ -432,12 +462,14 @@ transition_data_for_analysis %>%
     y = " "
   ) +
   theme_minimal() +
-  theme(legend.position = "none",
-        plot.title = element_text(face = "bold"),
-        plot.subtitle = element_text(face = "italic"),
-        panel.grid.minor = element_blank(),
-        panel.grid.major.y = element_blank(),
-        axis.text.y = element_text(size = 8))
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(face = "italic"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.text.y = element_text(size = 8)
+    )
 ```
 
 You also create a table with the descriptive statistics (mean, SD, min,
@@ -454,19 +486,22 @@ desc_IQ <- c(
   mean = mean(transition_data_for_analysis$IQ_score, na.rm = TRUE),
   SD = sd(transition_data_for_analysis$IQ_score, na.rm = TRUE),
   min = min(transition_data_for_analysis$IQ_score, na.rm = TRUE),
-  max = max(transition_data_for_analysis$IQ_score, na.rm=TRUE))
+  max = max(transition_data_for_analysis$IQ_score, na.rm=TRUE)
+  )
 
 desc_Reading <- c(
   mean = mean(transition_data_for_analysis$Reading_score, na.rm = TRUE),
   SD = sd(transition_data_for_analysis$Reading_score, na.rm = TRUE),
   min = min(transition_data_for_analysis$Reading_score, na.rm = TRUE),
-  max = max(transition_data_for_analysis$Reading_score, na.rm=TRUE))
+  max = max(transition_data_for_analysis$Reading_score, na.rm=TRUE)
+  )
 
 desc_Math <- c(
   mean = mean(transition_data_for_analysis$Math_score, na.rm = TRUE),
   SD = sd(transition_data_for_analysis$Math_score, na.rm = TRUE),
   min = min(transition_data_for_analysis$Math_score, na.rm = TRUE),
-  max = max(transition_data_for_analysis$Math_score, na.rm=TRUE))
+  max = max(transition_data_for_analysis$Math_score, na.rm=TRUE)
+  )
 
 descriptives <- bind_rows(desc_IQ, desc_Reading, desc_Math)
 
@@ -501,11 +536,14 @@ library(knitr)
 
 descriptives %>%
   mutate_all(round, 2) %>%
-  mutate(Name = c("IQ score", "Reading score", "Mathematics score")) %>%
+  mutate(
+    Name = c("IQ score", "Reading score", "Mathematics score")
+    ) %>%
   relocate(Name, .before = "mean") %>%
   kable(
     ## To align the content of the columns
-    align = c("l", "c", "c", "c", "c")) 
+    align = c("l", "c", "c", "c", "c")
+    ) 
 ```
 
 Much more options are available when you also install the package
@@ -552,8 +590,10 @@ print the model summary.
 
 ```{r}
 #| echo: true
-Model_lm1 <- lm(Math_Z ~ Auto_mot_Z + Contr_mot_Z + Amot_Z,
-               data = transition_data_for_analysis)
+Model_lm1 <- lm(
+  Math_Z ~ Auto_mot_Z + Contr_mot_Z + Amot_Z,
+  data = transition_data_for_analysis
+  )
 summary(Model_lm1)
 ```
 
@@ -567,9 +607,11 @@ print the model summary.
 ```{r}
 #| echo: true
 
-Model_lm2 <- lm(Math_Z ~ IQ_Z + Reading_Z + Gender + Educ_level_cat +
-                 Auto_mot_Z + Contr_mot_Z + Amot_Z,
-               data = transition_data_for_analysis)
+Model_lm2 <- lm(
+  Math_Z ~ IQ_Z + Reading_Z + Gender + Educ_level_cat + 
+    Auto_mot_Z + Contr_mot_Z + Amot_Z,
+  data = transition_data_for_analysis
+  )
 summary(Model_lm2)
 ```
 
@@ -640,12 +682,14 @@ transition_data_for_analysis %>%
   ## I reused the theme-settings of the lollipop plot.
   ## In this way, you can easily 'align' the style of the plots you make
   ## Of course, you can also create your own ggplot2-theme
-  theme(legend.position = "none",
-        plot.title = element_text(face = "bold"),
-        plot.subtitle = element_text(face = "italic"),
-        panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_blank(),
-        axis.text.y = element_text(size = 8))
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(face = "italic"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    axis.text.y = element_text(size = 8)
+    )
 ```
 
 The tail on the left-hand side of the distribution worries you a bit.
@@ -663,11 +707,15 @@ load the package `sjPlot`.*
 
 ```{r}
 library(sjPlot)
-tab_model(Model_lm1, Model_lm2,
-          show.p = FALSE, show.ci = .9,
-          string.pred = "Variables",
-          string.est = "Est.", string.ci = "90% CI",
-          string.intercept = "Intercept") 
+tab_model(
+  Model_lm1, Model_lm2,
+  show.p = FALSE, 
+  show.ci = .9,
+  string.pred = "Variables",
+  string.est = "Est.", 
+  string.ci = "90% CI",
+  string.intercept = "Intercept"
+  ) 
 ```
 
 Before sending the report to your supervisor, you compare both models.
@@ -678,17 +726,30 @@ excludes all missing values for the variables included in `Model_lm2`.**
 ```{r}
 transition_data_omitted <- 
   transition_data_for_analysis %>%
-  filter(!is.na(Math_Z), !is.na(IQ_Z), !is.na(Reading_Z), !is.na(Gender), !is.na(Educ_level_cat), !is.na(Auto_mot_Z), !is.na(Contr_mot_Z), !is.na(Amot_Z))
+  filter(
+    !is.na(Math_Z),
+    !is.na(IQ_Z), 
+    !is.na(Reading_Z), 
+    !is.na(Gender), 
+    !is.na(Educ_level_cat), 
+    !is.na(Auto_mot_Z), 
+    !is.na(Contr_mot_Z), 
+    !is.na(Amot_Z)
+    )
 ```
 
 Then, you **refit both models using the new data set.**
 
 ```{r}
-Model_lm1_B <- lm(Math_Z ~ Auto_mot_Z + Contr_mot_Z + Amot_Z,
-                 data = transition_data_omitted)
-Model_lm2_B <- lm(Math_Z ~ IQ_score + Reading_score + Gender + Educ_level_cat +
-                  Auto_mot_Z + Contr_mot_Z + Amot_Z,
-                  data = transition_data_omitted)
+Model_lm1_B <- lm(
+  Math_Z ~ Auto_mot_Z + Contr_mot_Z + Amot_Z,
+  data = transition_data_omitted
+  )
+Model_lm2_B <- lm(
+  Math_Z ~ IQ_score + Reading_score + Gender + Educ_level_cat +
+    Auto_mot_Z + Contr_mot_Z + Amot_Z,
+  data = transition_data_omitted
+  )
 ```
 
 Finally, you **compare both models using the function

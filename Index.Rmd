@@ -16,7 +16,7 @@ library(flexdashboard)
 
 # Intro {.sidebar}
 
-This site bundles all the materials used for the workshop [R and RStudio]{style="color: #EB6864"}. 
+This site bundles all the materials used for the workshop [A RepRoducible woRkflow in QuaRto]{style="color: #EB6864"}. 
 
 ---
 
@@ -28,7 +28,7 @@ Instructors:
  
 ---
 
-All materials for the course can be downloaded via <a href="https://github.com/Sdemaeyer2/R_workshop_ICO2024" target="_blank">the github page </a>. 
+All materials for the course can be downloaded via <a href="https://github.com/Sdemaeyer2/R_workshop_Edubron26" target="_blank">the github page </a>. 
 
 ---
 
@@ -65,8 +65,8 @@ In the course we will schedule some time to work with your own research data (or
 
 | When?  | 
 |:--------|
-| Monday February 2 (9 am - 16:00 pm) | 
-| Tuesday February 3 (9 am - 16:00 pm) | 
+| Monday March 2 (9 am - 16:00 pm) - S.S.002| 
+| Tuesday March 3 (9 am - 16:00 pm) - S.S.002| 
 
 
 ### Slides
@@ -84,13 +84,13 @@ If you like to have all the slides as a pdf you can download them here as zip-fi
 In the first part, we will introduce the basics of `R` language and the `RStudio` environment. 
 Following topics will be discussed:
 
-- What is R and why should you use R? 
-- Install R & RStudio 
+- What is reproducibility? 
 - RStudio interface 
 - The basics in R 
-- Installing and using packages
-- Importing data 
+- Installing and using packages 
 - Working with R-projects
+- Importing data 
+
 
 ### Materials
 
@@ -144,7 +144,7 @@ Quarto allows you to create nice documents like *lab-notes* or *walk-throughs*. 
 
 ### Outline
 
-In this part of the workshop we introduce `dplyr` verbs. `dplyr` is a package that lives in the `tidyverse` that has powerfull functions to do some heavy lifting data wrangling operations. We will show how this package can be used to create new variables, select variables, filter cases, re-arrange datasets, merge datasets, ... 
+In this part of the workshop we introduce `dplyr` verbs. `dplyr` is a package that lives in the `tidyverse` that has powerful functions to do some heavy lifting data wrangling operations. We will show how this package can be used to create new variables, select variables, filter cases, re-arrange data sets, merge datasets, ... 
 
 #### Slides
 
@@ -169,17 +169,15 @@ On-line interactive course on using `dplyr` can be found here:
 
 ### Outline
 
-Now everything is set to learn more about creating powerfull visualizations in `R`. To this end, we will introduce you the go-to package for visualizations in `R`: `ggplot2`.
+Now everything is set to learn more about creating powerful visualizations in `R`. To this end, we will introduce you the go-to package for visualizations in `R`: `ggplot2`.
 
 These are the topics covered in this part:
 
-- Simple plots in R 
 - Grammar of graphics
 - How `ggplot2` works (in a nutshell)
 - Visualising a categorical variable
 - Visualising a quantitative variable
 - Visualising more than one variable
-- More about visualisation? 
 
 #### Slides
 
@@ -187,7 +185,7 @@ The htlm-version of the slides for this first part can be found <a href="Present
 
 #### Data
 
-In this slideshow we make use of the `Pinguins` dataset that is part of the `palmerpenguins` package. So, the package `palmerpenguins` has to be installed and loaded to mimic the commands in the slides.
+In this slideshow we make use of the `Penguins` dataset that is part of the `palmerpenguins` package. So, the package `palmerpenguins` has to be installed and loaded to mimic the commands in the slides.
 
 
 ## Column 2
