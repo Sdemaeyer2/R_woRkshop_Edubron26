@@ -485,7 +485,7 @@ Various types of files used during the workshop:
 - html-version of slides and exercises (.html)
 
 
-All these files can be found at the dedicated web-page: https://icoworkshop-rstudio-2024.netlify.app/#quick-overview
+All these files can be found at the dedicated web-page: https://r-workshop-edubron26.netlify.app/
 
 ---
 class: inverse-green, center, middle
