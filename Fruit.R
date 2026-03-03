@@ -38,14 +38,14 @@ str(Yellow)
 Yellow
 
 
-## 2. Data frame ====
-# Create a data frame 'Fruit_data'
+# 2. Data frame ====
+## Create a data frame 'Fruit_data'
 Fruit_data <- data.frame(Fruit, Weight, Yellow)
 
 # Structure of 'Fruit_data'
 str(Fruit_data)
 
-## 3. Subsetting a data frame ====
+# 3. Subsetting a data frame ====
 # Using the $-operator
 Fruit_data$Fruit
 

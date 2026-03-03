@@ -3,7 +3,7 @@
   <head>
     <title>A reProducible woRkflow with Quarto</title>
     <meta charset="utf-8" />
-    <script src="libs/header-attrs-2.30/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="extra.css" type="text/css" />
@@ -94,7 +94,7 @@ name: part1
 ## The .UA-red[`cor( )`] function
 
 .pull-left[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-2-1.png" alt="" width="360" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-2-1.png" width="360" /&gt;
 ]
 
 .pull-right[
@@ -113,7 +113,8 @@ cor(penguins$flipper_length_mm, penguins$body_mass_g)
 ```
 
 ``` r
-cor(penguins$flipper_length_mm, penguins$body_mass_g, use = "complete.obs")
+cor(penguins$flipper_length_mm, penguins$body_mass_g, 
+    use = "complete.obs")
 ```
 
 ```
@@ -228,7 +229,7 @@ penguins %&gt;%
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-8-1.png" alt="" width="504" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-8-1.png" width="504" /&gt;
 ]
 
 ---
@@ -267,7 +268,7 @@ penguins %&gt;%
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-10-1.png" alt="" width="504" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-10-1.png" width="504" /&gt;
 ]
 
 ---
@@ -346,7 +347,7 @@ penguins %&gt;%
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-14-1.png" alt="" width="504" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-14-1.png" width="504" /&gt;
 ]
 
 ---
@@ -371,6 +372,7 @@ var.test(body_mass_g ~ species, data= p)
 ]
 
 .pull-right[
+.footnotesize[
 
 ```
 ## 
@@ -386,7 +388,7 @@ var.test(body_mass_g ~ species, data= p)
 ##          0.8274515
 ```
 ]
-
+]
 ---
 ## Perform unpaired t-test with .UA-red[`t.test()`] function
 
@@ -409,6 +411,7 @@ t.test(body_mass_g ~ species, data= p, var.equal = TRUE)
 ]
 
 .pull-right[
+.footnotesize[
 
 ```
 ## 
@@ -424,7 +427,7 @@ t.test(body_mass_g ~ species, data= p, var.equal = TRUE)
 ##             3700.662             5076.016
 ```
 ]
-
+]
 
 ---
 class: inverse-green, center, middle
@@ -436,7 +439,7 @@ name: part3
 
 ## .UA-red[`lm()`]
 
-&lt;img src="lm_formula.png" alt="" width="50%" height="50%" /&gt;
+&lt;img src="lm_formula.png" width="50%" height="50%" /&gt;
 
 
 
@@ -614,7 +617,7 @@ augment(Model1) %&gt;%
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-27-1.png" alt="" width="288" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-27-1.png" width="288" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -648,7 +651,7 @@ augment(Model1) %&gt;%
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-29-1.png" alt="" width="288" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-29-1.png" width="288" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -684,7 +687,7 @@ augment(Model1) %&gt;%
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-31-1.png" alt="" width="288" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-31-1.png" width="288" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -768,7 +771,7 @@ augment(Model2) %&gt;%
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-35-1.png" alt="" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-35-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 
 ---
@@ -788,8 +791,8 @@ tab_model(Model1, Model2)
 &lt;table style="border-collapse:collapse; border:none;"&gt;
 &lt;tr&gt;
 &lt;th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; "&gt;&amp;nbsp;&lt;/th&gt;
-&lt;th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;flipper length mm&lt;/th&gt;
-&lt;th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;flipper length mm&lt;/th&gt;
+&lt;th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;flipper_length_mm&lt;/th&gt;
+&lt;th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;flipper_length_mm&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; "&gt;Predictors&lt;/td&gt;
@@ -878,7 +881,7 @@ plot_model(
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-38-1.png" alt="" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-38-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 ---
 
@@ -899,7 +902,7 @@ plot_model(
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-40-1.png" alt="" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-40-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 ---
 ## Some cool stuff with the .UA-red[`sjplot`] package
@@ -916,7 +919,7 @@ plot_model(Model2) + theme_minimal()
 ]
 
 .pull-right[
-&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-42-1.png" alt="" width="504" style="display: block; margin: auto;" /&gt;
+&lt;img src="Slides_Part5_files/figure-html/unnamed-chunk-42-1.png" width="504" style="display: block; margin: auto;" /&gt;
 ]
 ---
 ##Other Statistical Modelling in R
@@ -937,10 +940,10 @@ Bayesian analyses (using MCMC): `brms`
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-  "ratio": "16:9",
-  "highlightStyle": "github",
-  "highlightLines": true,
-  "countIncrementalSlides": false
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
